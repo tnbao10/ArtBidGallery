@@ -80,6 +80,15 @@ ArtBidGallery website features three main roles: Users, which include Sellers an
 </p>
 </br>
 
+- Interact with other users through the integrated chat feature
+<div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
+        <p align="center">
+        <img src="https://github.com/user-attachments/assets/ec7807bb-afdc-4ebf-b252-1653d4be1e35" width=400"> 
+        <img src="https://github.com/user-attachments/assets/6245540c-8d17-4169-9f0d-d685dcb848ea" width=400">
+        </p>
+</div>
+</br>
+
 <h4>2. Admin</h4> 
 
 - On Admin's Page, Admins can manage sellers and buyers list

@@ -33,6 +33,14 @@ c. This is your shopping cart, where you can add items to purchase
     <i>Shopping cart</i>
 </p>
 
+g. "This is the checkout page, where you can update your shipping address and make payments using PayPal."
+<div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
+        <p align="center">
+        <img src="https://github.com/user-attachments/assets/1341a2ea-25c7-4cda-a75b-c391a23db0f1" width=350"> 
+        <img src="https://github.com/user-attachments/assets/1a7c196a-e049-457c-bf87-0e5caaea6b1a" width="400" height="200">
+        </p>
+</div>
+
 d. Sellers have the ability to post and manage Art in this page, while buyers don't have this feature
 <p align="center">
     <img src="https://github.com/user-attachments/assets/043082aa-ee33-4ac5-9f84-3e4568a34880" width=500"> <br/> 
@@ -52,17 +60,41 @@ e. This is a detail of the auction
 </p>
 
 
-
-
 b. This is the user Information where you can edit your information and your address
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/0ae6faf5-139b-4e33-8c54-80c7d56cfa47" width=350"> <br/> 
+    <img src="https://github.com/user-attachments/assets/0ae6faf5-139b-4e33-8c54-80c7d56cfa47" width=500"> <br/> 
     <i>User Information Page</i>
 </p>
 
+b. This is the user Information where you can edit your information and your address
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/d2dac763-7ec8-4ec2-859e-defcab676002" width=500"> <br/> 
+    <i>Contact Page</i>
+</p>
+
+<h4>2. Admin</h4> 
+
+![image](https://github.com/user-attachments/assets/a6fb28f7-3e17-497c-92e7-234ccdd66ac0)
 
 
-![image](https://github.com/user-attachments/assets/8680ab5f-aa00-4923-bc3a-f683545622b7)
+![image](https://github.com/user-attachments/assets/0c2df455-6564-45aa-b21e-d8b1791a91f9)
+
+![image](https://github.com/user-attachments/assets/29b0b1b0-d191-4a14-b933-f16874863d88)
+
+
+![image](https://github.com/user-attachments/assets/82a074f8-20af-4906-ab55-fa5b6ee7c7f5)
+
+![image](https://github.com/user-attachments/assets/af565e89-a61d-48a4-874d-021a11a80f95)
+
+![image](https://github.com/user-attachments/assets/613726fa-75ff-4a3b-b9f6-a679aebdfe98)
+
+![image](https://github.com/user-attachments/assets/1bd83b22-c185-4f09-abd0-6189e2ec039a)
+
+
+
+
+
+
 
 
 

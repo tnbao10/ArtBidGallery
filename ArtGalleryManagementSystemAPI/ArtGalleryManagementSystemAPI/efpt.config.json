@@ -1,0 +1,130 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "DatabaseContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "ArtGalleryManagementSystemAPI",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[addresses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[bid_order]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[bid_order_user]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[cart]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[cart_item]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[cart_item_products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[categories]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[connections]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[districts]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[order_details]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[order_item]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[order_item_products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[product_attributes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[product_attributes_products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[provinces]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[reviews]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[sellers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[users]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[wards]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[wishlist]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[wishlist_products]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": true,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

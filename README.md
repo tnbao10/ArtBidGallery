@@ -104,6 +104,7 @@ ArtBidGallery website features three main roles: Users, which include Sellers an
 </p>
 
 <h4>3. Login vs Signup</h4> 
+- You can create account or login by Google
 <p align="center">
     <img src="https://github.com/user-attachments/assets/fecca6b9-2f36-4f6f-ae4c-e06ed9f0bf64" width=500"> <br/> 
     <i>Login</i>

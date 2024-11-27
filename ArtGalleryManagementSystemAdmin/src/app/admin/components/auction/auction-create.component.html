@@ -1,0 +1,235 @@
+<div class="page-meta">
+    <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+        <!-- <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Datatables</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Miscellaneous</li>
+        </ol> -->
+    </nav>
+</div>
+<div class="row">
+    <div class="col-10 seperator-header">
+        <h3 style="font-size: 25px; font-weight: bold; letter-spacing: 2px; font-family: 'Arial', sans-serif;">AUCTION LIST</h3>
+    </div>
+    <div class="col-2 text-end">
+        <button class="btn btn-info add-address" data-bs-toggle="modal" data-bs-target="#createAuctionModal">Create Auction</button>
+    </div>
+</div>
+<div class="modal fade" id="createAuctionModal" tabindex="-1" aria-labelledby="addAddressModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAddressModalLabel">Add Bid Product</h5>
+            </div>
+            <div class="modal-body d-flex flex-column justify-content-center align-items-center" style="padding: 30px;">
+                <form class="row" [formGroup]="bidForm" (ngSubmit)="addBidOrder()">
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Bid Start At: </label>
+                            <input type="datetime-local" class="form-control" formControlName="bidStartTime">                           
+                        </div>  
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Bid End At:</label>
+                            <input type="datetime-local" class="form-control" formControlName="bidEndTime">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Bid Base Price: </label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                                <input type="number" class="form-control" formControlName="bidBasePrice">                           
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Bid Sold Price:</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                                <input type="number" class="form-control" formControlName="bidSoldPrice">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Increment in price: </label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                                <input type="number" class="form-control" formControlName="incrementInPrice">                                                           
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Increment in time:</label>
+                                <div>
+                                    <input class=" html-duration-picker form-control" type="text" formControlName="IncrementInTime">
+                                </div>
+                                <!-- <input type="time" class="form-control" formControlName="IncrementInTime"> -->
+                           
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-12">
+                        <div class="mb-4">
+                            <button type="submit" class="btn btn-secondary w-100 icon-error" [disabled]="bidForm.invalid">Add</button>
+                        </div>
+                    </div>    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="row" id="cancel-row">
+                    
+    <div class="col-xl-12 col-lg-12 col-sm-12 layout-top-spacing layout-spacing">
+        <div class="widget-content widget-content-area br-8">
+            <table id="invoice-list" class="table dt-table-hover" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th class="checkbox-area" scope="col">
+                            <div class="form-check form-check-primary">
+                                <input class="form-check-input" id="checkbox_parent_all" type="checkbox" (change)="ChangeSelectedValueAll($event)">
+                            </div>
+                        </th>
+                        <th>Image</th>
+                        <th>Product Name</th>                                                                 
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Seller</th> 
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(product of products; track product){
+                        <tr>
+                            <td>
+                                <div class="form-check form-check-primary">
+                                    <input class="form-check-input productchecked" type="checkbox" (change)="ChangeSelectedValue(product.selectedindex,$event)">
+                                </div>
+                            </td>
+                            <td>                            
+                                <div class="align-content-center">
+                                    @if(product.image.substring(0,5)=="https"){
+                                        <img alt="avatar" src="{{product.image}}" style="object-fit: cover; max-width: 60px; max-height:60px">
+                                    }
+                                    @else {
+                                        <img alt="avatar" src="{{imageUrl+product.image}}" style="object-fit: cover; max-width: 60px; max-height:60px">
+                                    } 
+                                    
+                                </div>                              
+                            </td>
+                            <td><span>{{product.name}}</span></td>
+                            <td><span class="inv-amount">{{product.quantity}}</span></td>
+                            
+                            <td ><span class="">${{product.price}}</span></td>
+                            <td>
+                                <div class="d-flex align-items-baseline">
+                                    <div class="usr-img-frame me-2 rounded-circle">
+                                        @if(product.avatar.substring(0,5)=="https"){
+                                            <img alt="avatar" class="img-fluid rounded-circle" src="{{product.avatar}}">
+                         
+                                        }
+                                        @else {
+                                            <img alt="avatar" class="img-fluid rounded-circle" src="{{imageUrl+product.avatar}}">
+                                            
+                                        }                                        
+                                    </div>
+                                    <p class="inv-amount mx-2">{{product.username}}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <a class="badge badge-light-danger text-start action-delete" href="javascript:void(0);" (click)="DeleteItem(product.id)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
+                            </td>
+                        </tr>
+                    }
+                    
+ 
+
+                </tbody>
+            </table>
+            <div style="float: left;" class="mb-2 deleteA btn-lg">
+            </div>          
+        </div>
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-content widget-content-area">
+                <table id="zero-config" class="table dt-table-hover" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th class="checkbox-area" scope="col">
+                                <div class="form-check form-check-primary">
+                                    <input class="form-check-input" id="checkbox_parent_all" type="checkbox" (change)="ChangeSelectedValueAll($event)">
+                                </div>
+                            </th>
+                            <th>Image</th>
+                            <th>Product Name</th>                                                                 
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Seller</th> 
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(product of products; track product){
+                            <tr>
+                                <td>
+                                    <div class="form-check form-check-primary">
+                                        <input class="form-check-input productchecked" type="checkbox" (change)="ChangeSelectedValue(product.selectedindex,$event)">
+                                    </div>
+                                </td>
+                                <td>                            
+                                    <div class="align-content-center">
+                                        @if(product.image.substring(0,5)=="https"){
+                                            <img alt="avatar" src="{{product.image}}" style="object-fit: cover; max-width: 60px; max-height:60px">
+                                        }
+                                        @else {
+                                            <img alt="avatar" src="{{imageUrl+product.image}}" style="object-fit: cover; max-width: 60px; max-height:60px">
+                                        } 
+                                        
+                                    </div>                              
+                                </td>
+                                <td><span>{{product.name}}</span></td>
+                                <td><span class="inv-amount">{{product.quantity}}</span></td>
+                                
+                                <td ><span class="">${{product.price}}</span></td>
+                                <td>
+                                    <div class="d-flex align-items-baseline">
+                                        <div class="usr-img-frame me-2 rounded-circle">
+                                            @if(product.avatar.substring(0,5)=="https"){
+                                                <img alt="avatar" class="img-fluid rounded-circle" src="{{product.avatar}}">
+                             
+                                            }
+                                            @else {
+                                                <img alt="avatar" class="img-fluid rounded-circle" src="{{imageUrl+product.avatar}}">
+                                                
+                                            }                                        
+                                        </div>
+                                        <p class="inv-amount mx-2">{{product.username}}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a class="badge badge-light-danger text-start action-delete" href="javascript:void(0);" (click)="DeleteItem(product.id)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
+                                </td>
+                            </tr>
+                        }
+                        
+     
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

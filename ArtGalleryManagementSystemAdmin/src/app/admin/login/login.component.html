@@ -1,0 +1,57 @@
+<div style="background-image: url(../src/assets/img/TranhArt.jpg); background-size: contain;" class="auth-container d-flex">
+    <div class="container mx-auto align-self-center">
+        <div class="row">
+            <div  class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
+                <div  style="background-color: #f1ebeb; " class="card mt-3 mb-3">
+                    <div style="padding: 35px;" class="card-body">
+                        <div class="row">
+                            <div style="text-align: center;" class="col-md-12 mb-3">
+                                <img height="135px" width="180px" src="../src/assets/img/logo2.svg" alt="">
+                                <p style="font-size: 20px;">Welcome to a World of Art -</p>
+                                <p style="font-size: 20px;">Where Every Canvas Tells a Story!</p>
+                                <h2 style="font-weight: bold; text-align: center; font-family: Arial, Helvetica, sans-serif;">Admin Login</h2>                                
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="form-label"  >Admin</label>
+                                    <input type="email" class="form-control" [(ngModel)] = "username" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-4">
+                                    <label  class="form-label">Password</label>
+                                    <input  type="password" class="form-control"[(ngModel)] = "password" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <div class="form-check form-check-primary form-check-inline">
+                                        <!-- <input  class="form-check-input me-3" type="checkbox" id="form-check-default">
+                                        <label class="form-check-label" for="form-check-default">
+                                            Remember me
+                                        </label> -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="mb-4">
+                                    <button class="btn btn-secondary w-100 icon-error mb-2 me-4 _effect--ripple waves-effect waves-light" (click)="login()">SIGN IN</button>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-12">
+                                <div class="text-center">
+                                    <p class="mb-0">Dont't have an account ? <a [routerLink]="['/signup']" href="javascript:void(0);" class="text-warning">Sign Up</a></p>
+                                </div>
+                            </div> -->
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>

@@ -1,0 +1,332 @@
+<!-- BREADCRUMB -->
+@if(users!=null){
+    <div class="page-meta">
+        <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+            <!-- <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Datatables</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Miscellaneous</li>
+            </ol> -->
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-10 seperator-header">
+            <h3 style="font-size: 25px; font-weight: bold; letter-spacing: 2px; font-family: 'Arial', sans-serif;">USER LIST</h3>
+        </div>
+        <div class="col-2 text-end">
+            <button class="btn btn-info add-address" data-bs-toggle="modal" data-bs-target="#addAddressModal">Add User</button>
+        </div>
+    </div>
+    <!-- Modal Structure (ADD USER)-->
+    <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addAddressModalLabel">Add User</h5>
+                </div>
+                <div class="modal-body d-flex flex-column justify-content-center align-items-center" style="padding: 30px;">
+                    <form class="row" [formGroup]="addUserForm" (ngSubmit)="Add()">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label">Username: </label>
+                                <input type="text" class="form-control add-billing-address-input" formControlName="username">
+                                @if(addUserForm.get('username').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['username'])){
+                                            <li style="padding-top: 5px; color: red;">Username is blank</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-md-6">
+                            <div class="">
+                                <label class="form-label">First Name: </label>
+                                <input type="text" class="form-control add-billing-address-input" formControlName="firstName">
+                                @if(addUserForm.get('firstName').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['firstName'])){
+                                            <li style="padding-top: 5px; color: red;">First Name is blank</li>
+                                        }
+                                        @else if(addUserForm.hasError('pattern',['firstName'])){
+                                            <li style="padding-top: 5px; color: red;">First Name invalid</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Last Name: </label>
+                                <input type="text" class="form-control add-billing-address-input" formControlName="lastName">
+                                @if(addUserForm.get('lastName').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['lastName'])){
+                                            <li style="padding-top: 5px; color: red;">Last Name is blank</li>
+                                        }
+                                        @else if(addUserForm.hasError('pattern',['lastName'])){
+                                            <li style="padding-top: 5px; color: red;">Last Name invalid</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div> -->
+
+                       
+
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label">Email: </label>
+                                <input type="email" class="form-control" formControlName="email">
+                                @if(addUserForm.get('email').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['email'])){
+                                            <li style="padding-top: 5px; color: red;">Email is blank</li>
+                                        }
+                                        @if(addUserForm.hasError('email',['email'])){
+                                            <li style="padding-top: 5px; color: red;">Email invalid</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label class="form-label">Password: </label>
+                                <div class="input-group mb-3">
+                                    <input [type]="typeInput" class="form-control" formControlName="password" aria-describedby="basic-addon2">
+                                    @if(typeInput == 'text'){
+                                        <a href="javascript:void(0);" (click)="hide()" class="input-group-text" id="basic-addon2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                        </a>
+                                    }
+                                    @else if(typeInput == 'password'){
+                                        <a href="javascript:void(0);" (click)="show()" class="input-group-text" id="basic-addon2" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                                        </a>
+                                    }
+                                </div>
+                                @if(addUserForm.get('password').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['password'])){
+                                            <li style="padding-top: 5px; color: red;">password is blank.</li>
+                                        }
+                                        @if(addUserForm.hasError('length', ['password'])){
+                                            <li style="padding-top: 5px; color: red;">Password must be between 6 and 20 characters.</li>
+                                        }
+                                        @if(addUserForm.hasError('digit', ['password'])){
+                                            <li style="padding-top: 5px; color: red;">Password must contain at least one digit.</li>
+                                        }
+                                        @if(addUserForm.hasError('lowercase', ['password'])){
+                                            <li style="padding-top: 5px; color: red;">Password must contain at least one lowercase letter.</li>
+                                        }
+                                        @if(addUserForm.hasError('uppercase', ['password'])){
+                                            <li style="padding-top: 5px; color: red;">Password must contain at least one uppercase letter.</li>
+                                        }
+                                        @if(addUserForm.hasError('specialCharacter', ['password'])){
+                                            <li style="padding-top: 5px; color: red;">Password must contain at least one special character.</li>
+                                        }
+                                    </ul>
+                                }
+                                
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label class="form-label">Confirm Password: </label>
+                                <div class="input-group mb-3">
+                                    <input [type]="typeInputRe" class="form-control" formControlName="rePassword" aria-describedby="basic-addon2">
+                                    @if(typeInputRe == 'text'){
+                                        <a href="javascript:void(0);" (click)="hideRe()" class="input-group-text" id="basic-addon2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                        </a>
+                                    }
+                                    @else if(typeInputRe == 'password'){
+                                        <a href="javascript:void(0);" (click)="showRe()" class="input-group-text" id="basic-addon2" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                                        </a>
+                                    }
+                                </div>
+                                @if(addUserForm.get('rePassword').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['rePassword'])){
+                                            <li style="padding-top: 5px; color: red;">Confirm password is blank</li>
+                                        }
+                                        @else if(addUserForm?.errors?.['mismatch']){
+                                            <li style="padding-top: 5px; color: red;">Wrong confirm password</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-12">
+                            <div class="mb-3">
+                                <label for="rangeCalendarFlatpickr">Day of Birth: </label>
+                                <input id="rangeCalendarFlatpickr" class="form-control" type="text" readonly="readonly" formControlName="birthOfDate">
+                                @if(addUserForm.get('birthOfDate').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['birthOfDate'])){
+                                            <li style="padding-top: 5px; color: red;">Day of Birth is blank</li>
+                                        }
+                                        @else if(addUserForm.hasError('pattern',['birthOfDate'])){
+                                            <li style="padding-top: 5px; color: red;">Day of Birth invalid</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div> -->
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label for="gender">Gender: </label>
+                                <select class="form-control" id="gender" name="gender" formControlName="gender">
+                                    <option value="">Choose your gender ....</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option value="3">Others</option>
+                                </select>
+                                @if(addUserForm.get('gender').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['gender'])){
+                                            <li style="padding-top: 5px; color: red;">Gender is blank</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label">Phone Number: </label>
+                                <input type="text" class="form-control" formControlName="phoneNumber">
+                                @if(addUserForm.get('phoneNumber').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['phoneNumber'])){
+                                            <li style="padding-top: 5px; color: red;">Phone Number is blank</li>
+                                        }
+                                        @else if(addUserForm.hasError('pattern',['phoneNumber'])){
+                                            <li style="padding-top: 5px; color: red;">Phone Number invalid</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-md-12">
+                            <div class="mb-3">
+                                <label for="role">Role: </label>
+                                <select class="form-control" id="role" name="role" formControlName="role">
+                                    <option value="">Choose your role ....</option>
+                                    <option value="1">Buyer</option>
+                                    <option value="2">Seller</option>
+                                </select>
+                                @if(addUserForm.get('role').touched){
+                                    <ul>
+                                        @if(addUserForm.hasError('required',['role'])){
+                                            <li style="padding-top: 5px; color: red;">Role is blank</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div> -->
+                        <div class="col-12">
+                            <div class="mb-4">
+                                <button type="submit" class="btn btn-secondary w-100 icon-error" [disabled]="addUserForm.invalid">Add</button>
+                            </div>
+                        </div>    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+            <div class="statbox widget box box-shadow">
+                <div class="widget-content widget-content-area">
+                    <table id="html5-extension" class="table dt-table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                                <th>Avatar</th>
+                                <th>Phonenumber</th>
+                                <th>Email</th>
+                                <th>Birth Of Date</th>
+                                <th>CreatedAt</th>
+                                <th>DeletedAt</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(user of users;track user){
+                                <tr>
+                                    @if(user.firstName!=null){
+                                        <td>{{user.firstName}}</td>
+                                    }
+                                    @else{
+                                        <td>Updating ......</td>
+                                    }
+                                    @if(user.lastName!=null){
+                                        <td>{{user.lastName}}</td>
+                                    }
+                                    @else{
+                                        <td>Updating ......</td>
+                                    }
+                                    <td>{{user.username}}</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <div class="">
+                                                @if(user.avatar.substring(0,5)=="https"){
+                                                    <img alt="avatar" src="{{user.avatar}}" referrerpolicy="no-referrer" class="rounded-circle" width="40px" height="40px">
+                                                }
+                                                @else{
+                                                    <img src="{{imageUrl+user.avatar}}" class="rounded-circle" width="40px" height="40px">
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                    @if(user.phoneNumber!=null){
+                                        <td>{{user.phoneNumber}}</td>
+                                    }
+                                    @else{
+                                        <td>Updating ......</td>
+                                    }
+                                    <td>{{user.email}}</td>
+                                    @if(user.birthOfDate!=null){
+                                        <td>{{user.birthOfDate}}</td>
+                                    }
+                                    @else{
+                                        <td>Updating ......</td>
+                                    }
+                                    <td>{{user.createdAt}}</td>
+                                    @if(user.deletedAt!=null){
+                                        <td>{{user.deletedAt}}</td>
+                                    }
+                                    @else{
+                                        <td>None</td>
+                                    }
+                                    <td>
+                                        @if(user.deletedAt==null){
+                                            <div class="btn-group me-3">
+                                                <a (click)="edit(user.id)" class="badge badge-light-success text-start action-delete" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></a>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a (click)="delete(user.id)" class="badge badge-light-danger text-start action-delete" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
+                                            </div>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}

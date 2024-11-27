@@ -114,6 +114,14 @@ ArtBidGallery website features three main roles: Users, which include Sellers an
     <i>Signup</i>
 </p>
 
+## Security Vulnerabilities
+
+If you have any questions or suggestions, feel free to reach out to me via email at [tnbao1009@gmail.com](tnbao1009@gmail.com).  I’d love to hear from you!
+
+## License
+
+The .NET framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/M
+
 
 
 

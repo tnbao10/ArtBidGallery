@@ -1,6 +1,6 @@
 # [.NET] ArtBidGallery
 Welcome to ArtBidGallery website – a place where you can buy, sell, and auction products easily. We support PayPal for safe and simple payments. Whether you’re a seller listing your items, a buyer looking for great deals, or an admin managing the platform, our website is built to make everything smooth and secure.
-- Technologies Used: C#, .NET, API.NET WebAPI, Angular, Bootstrap
+- Technologies Used: C#, .NET, Angular, Bootstrap
 - Database: Microsoft SQL Server
     <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
         <p align="center">

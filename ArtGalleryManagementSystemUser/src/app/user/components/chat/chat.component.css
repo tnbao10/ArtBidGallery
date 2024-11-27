@@ -1,0 +1,18 @@
+.chat-box {
+    max-height: 100%;  /* Chiều cao tối đa của khung chat */
+    overflow: hidden;   /* Ẩn thanh cuộn chính của khung chat */
+  }
+  
+  .chat-messages-container {
+    height: 100%;       /* Chiều cao của phần khung chứa tin nhắn */
+    overflow-y: auto;    /* Cho phép cuộn khi nội dung vượt quá chiều cao */
+    padding: 10px;
+  }
+
+  .selected-user {
+    background-color: #d3d3d3; /* Màu xám nhạt */
+    border-color: #d3d3d3;
+    color: white; /* Màu chữ trắng */
+  }
+  
+  

@@ -1,0 +1,167 @@
+
+<div class="auth-container d-flex">
+
+    <div class="container mx-auto align-self-center">
+
+        <div class="row">
+
+            <div class="col-6 d-lg-flex d-none h-100 my-auto top-0 start-0 text-center justify-content-center flex-column">
+                <div class="auth-cover-bg-image"></div>
+                <div style="background-image: url(../src/assets/img/TranhArt.jpg); 
+                            background-repeat: no-repeat; 
+                            background-size: cover; 
+                            background-position: center;" 
+                            class="auth-overlay">
+                </div>                        
+                <div class="auth-cover" style="position: relative; height: 100%;">
+                    <div class="position-absolute" style="bottom: 200; width: 100%;">
+                        <h2 class="mt-5 text-white font-weight-bolder px-2">
+                            "Welcome to a World of Art – Where Every Canvas Tells a Story!"
+                        </h2>
+                        <p class="text-white px-2">
+                            "Bringing Art to Life – Discover Your Perfect Piece Online!"
+                        </p>
+                    </div>
+                </div>
+                
+
+            </div>
+
+            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center ms-lg-auto me-lg-0 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div  class="mb-4" style="text-align: center;">
+                                   <img style="width: auto; height: 100px;" src="../src/assets/img/logo2.svg" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mb-3" style="text-align: center;">
+                                
+                                <h2>Sign In</h2>
+                                
+                            </div>
+                            <form>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input type="text" class="form-control" [(ngModel)] = "username" name="username" [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Password</label>
+                                    
+                                    <div class="input-group mb-3">
+                                        <input [type]="typeInput" class="form-control" [(ngModel)] = "password" name="password" [ngModelOptions]="{standalone: true}"  aria-describedby="basic-addon2">
+                                        @if(typeInput == 'text'){
+                                            <a href="javascript:void(0);" (click)="hide()" class="input-group-text-nohover" id="basic-addon2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                            </a>
+                                        }
+                                        @else if(typeInput == 'password'){
+                                            <a href="javascript:void(0);" (click)="show()" class="input-group-text-nohover" id="basic-addon2" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <div class="form-check form-check-primary form-check-inline">
+                                                <input class="form-check-input me-3" type="checkbox" id="form-check-default">
+                                                <label class="form-check-label" for="form-check-default">
+                                                    Remember me
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 mb-3 text-end">
+                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#inputFormModal">Forgot Password ?</a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-4">
+                                        <button class="btn btn-secondary w-100 {{wrong}}"  (click)="login()">SIGN IN</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="col-12 mb-4">
+                                <div class="">
+                                    <div class="seperator">
+                                        <hr>
+                                        <div class="seperator-text"> <span>Or continue with</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-12">
+                                <div class="mb-4">
+                                    <div id="google-btn" style="width: 50px; position: relative; left: 50%; transform: translateX(-50%);">
+                                    </div>        
+                                </div>
+                            </div>                            
+
+                            <div class="col-12">
+                                <div class="text-center">
+                                    <p class="mb-0">Dont't have an account ? <a [routerLink]="['/register']" class="text-warning">Sign Up</a></p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+</div>
+
+<!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+<!-- END GLOBAL MANDATORY SCRIPTS -->
+<!-- Modal -->
+<div class="modal fade inputForm-modal" id="inputFormModal" tabindex="-1" role="dialog" aria-labelledby="inputFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header" id="inputFormModalLabel">
+            <h2>Forgot Your Password ?</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+        
+        <div class="modal-body">
+            <h5>Enter your email to recover your Password</h5>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                            <polyline points="3 7 12 13 21 7"></polyline>
+                        </svg>
+                    </span>
+                    <input type="email" class="form-control" placeholder="Email" aria-label="email" [(ngModel)] = "resetPassEmail" [ngModelOptions]="{standalone: true}"(ngModelChange)="checkValidEmail($event)">
+                    
+                </div>
+                <ul>
+                    @if(!resetPassEmail){
+                        <li class="text-danger">Please enter your email</li>
+                    }
+                    @else if(!this.isValidEmail){   
+                        <li style="padding-top: 5px; color: red;">Email invalid</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary mt-2 mb-2 btn-no-effect" data-bs-dismiss="modal" (click)="confirmSend()">RECOVER</button>
+        </div>
+      </div>
+    </div>
+</div>

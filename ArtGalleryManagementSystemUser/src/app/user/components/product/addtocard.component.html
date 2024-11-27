@@ -1,0 +1,79 @@
+<div class="row" id="cancel-row">
+                    
+    <div class="col-xl-12 col-lg-12 col-sm-12 layout-top-spacing layout-spacing">
+        <div class="widget-content widget-content-area br-8">
+            <table id="invoice-list" class="table dt-table-hover" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th class="checkbox-area" scope="col">
+                            <div class="form-check form-check-primary">
+                                <input class="form-check-input" id="checkbox_parent_all" type="checkbox" (change)="ChangeSelectedValueAll($event)">
+                            </div>
+                        </th>
+                        <th>Image</th>
+                        <th>Product Name</th>                                                                 
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Seller</th> 
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(product of cartItems; track product){
+                        <tr>
+                            <td>
+                                <div class="form-check form-check-primary">
+                                    <input class="form-check-input productchecked" type="checkbox" (change)="ChangeSelectedValue(product.selectedindex,$event)">
+                                </div>
+                            </td>
+                            <td>                            
+                                <div class="align-content-center">
+                                    @if(product.image.substring(0,5)=="https"){
+                                        <img alt="avatar" src="{{product.image}}" referrerpolicy="no-referrer" style="object-fit: cover; max-width: 60px; max-height:60px">
+                                    }
+                                    @else {
+                                        <img alt="avatar" src="{{imageUrl+product.image}}" style="object-fit: cover; max-width: 60px; max-height:60px">
+                                    } 
+                                    
+                                </div>                              
+                            </td>
+                            <td><span>{{product.name}}</span></td>
+                            <td><span class="inv-amount">{{product.quantity}}</span></td>
+                            
+                            <td ><span class="">${{product.price}}</span></td>
+                            <td>
+                                <div class="d-flex align-items-baseline">
+                                    <div class="usr-img-frame me-2 rounded-circle">
+                                        @if(product.avatar.substring(0,5)=="https"){
+                                            <img alt="avatar" referrerpolicy="no-referrer" class="img-fluid rounded-circle" src="{{product.avatar}}">
+                         
+                                        }
+                                        @else {
+                                            <img alt="avatar" class="img-fluid rounded-circle" src="{{imageUrl+product.avatar}}">
+                                            
+                                        }                                        
+                                    </div>
+                                    <p class="inv-amount mx-2">{{product.username}}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <a class="badge badge-light-danger text-start action-delete" href="javascript:void(0);" (click)="DeleteItem(product.cardid)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
+                            </td>
+                        </tr>
+                    }
+                    
+ 
+
+                </tbody>
+            </table>
+            <div style="float: left;" class="mb-2 deleteA btn-lg">
+                <!-- <button class="btn btn-success mb-2  btn-lg " style="padding-left: 55px; padding-right: 55px;" (click)="deleteAll()">Delete All</button> -->
+            </div>
+            <div style="float: right;" class="mb-2  btn-lg">
+                <button class="btn btn-success mb-2  btn-lg " style="padding-left: 55px; padding-right: 55px;" (click)="BuyItems()">Buy</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,325 @@
+<div class="row layout-top-spacing">
+    <div class="widget-content col-xl-10 col-lg-9 col-md-9 col-sm-9 mb-4">
+        <div class="search-input-group-style input-group mb-3" >
+            <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search" ><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+            <input type="text" class="form-control" placeholder="Let's find your item in fast way" (change)="searchProduct($event)">
+        </div>
+    </div>
+    
+    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 mb-4 ms-auto">
+        @if(categories!=null){
+            <select class="form-select form-select" aria-label="Default select example" (change)="sortbycategory($event)">
+                <option value="">All Category</option>
+                @for(category of categories;track category){
+                    <option value="{{category.id}}">{{category.name}}</option>
+                }
+            </select>
+        }
+    </div>
+
+    <!-- <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 mb-4">
+        <select class="form-select form-select" aria-label="Default select example">
+            <option selected="">Sort By</option>
+            <option value="1">Recent</option>
+            <option value="2">Most Upvoted</option>
+            <option value="3">Popular</option>
+        </select>
+    </div> -->
+
+    
+</div>
+<div class="card mb-4">
+    <div class="card-header" id="headingTwo3" style="border: none;">
+        <section class="mb-0 mt-0">
+            <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionTwo" aria-expanded="false" aria-controls="iconAccordionTwo">
+                <div class="row align-items-center mt-2 mb-2">
+                    <div class="col-6">
+                        <h3 class="mb-0">Sort By Price</h3>
+                    </div>
+                    <div class="col-6 text-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="iconAccordionTwo" class="collapse" aria-labelledby="headingTwo3" data-bs-parent="#iconsAccordion" >
+        <div class="card-body" >
+            <!-- <hr> -->
+            <div class="widget-content widget-content-area-home align-center mb-4">
+                <div class="container"(mousehover)="selectValue()">
+                    <br/>
+                    <br/>
+                    <div id="html5" (mouseup)="selectValue()"></div>
+                    <br/>
+                    <div class="row mt-4 mb-4" >
+                        <div class="col-lg-6 mb-3">
+                            <input type="number" class="form-control" min="0" max="40" step="1" id="input-number-min"(change)="selectValue()" >
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="number" class="form-control" min="0" max="40" step="1" id="input-number"(change)="selectValue()" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <select class="form-select form-select" (change)="selectValueLowHigh($event)">
+                                <option value="-1">Select sort</option>
+                                <option value="1">Low to high</option>
+                                <option value="2">High to low</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@if(user!=null){
+    <div class="row">
+        @if(productsToDisplay){
+            @for(product of productsToDisplay; track product){
+                <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
+                    <div class="card style-2 mb-md-0 mb-4">
+                        <a [routerLink]="['../product-details',{productId:product.id}]" appReloadPage>
+                            @if(product.image.substring(0,5)=="https"){
+                                <img src="{{product.image}}" referrerpolicy="no-referrer" class="card-img-top" alt="..." height="300px">
+                            }
+                            @else {
+                                <img src="{{imageUrl+product.image}}" class="card-img-top" alt="..." height="300px">
+                            }
+                        </a>
+                        <div class="card-body px-0 pb-0">
+                            <div class="row">
+                                <a [routerLink]="['../product-details',{productId:product.id}]" class="col-7">
+                                    <h4 class="card-title mb-0">{{truncate(product.name,10, '...')}}</h4>
+                                </a>
+                                <a [routerLink]="['../product-details',{productId:product.id}]" class="col-5 text-end">
+                                    <h4 class="mb-1 mt-2 m-lg-6"><b>${{product.price}}</b></h4>
+                                </a>
+                            </div>
+                            
+                            <!-- <h5 class="card-bottom-section">$95.00</h5> -->
+                            <div class="media mt-4 mb-0 pt-1">
+                                @if(product.sellerId != userId){
+                                    <a [routerLink]="['../profile',{sellerId:product.sellerId}]" appReloadPage>
+                                        @if(product.avatar.substring(0,5)=="https"){
+                                            <img src="{{product.avatar}}" referrerpolicy="no-referrer" class="card-media-image me-3" alt="">
+                                        }
+                                        @else {
+                                            <img src="{{imageUrl+product.avatar}}" class="card-media-image me-3" alt="">
+                                        }
+                                    </a>
+                                    <div class="media-body">
+                                        <a [routerLink]="['../profile',{sellerId:product.sellerId}]">
+                                            <h4 class="media-heading mb-1">{{product.username}}</h4>
+                                            <p class="media-text">{{product.createdAt}}</p>
+                                        </a>
+                                    </div>
+                                }
+                                @else{
+                                    <a appReloadPage>
+                                        @if(product.avatar.substring(0,5)=="https"){
+                                            <img src="{{product.avatar}}" referrerpolicy="no-referrer" class="card-media-image me-3" alt="">
+                                        }
+                                        @else {
+                                            <img src="{{imageUrl+product.avatar}}" class="card-media-image me-3" alt="">
+                                        }
+                                    </a>
+                                    <div class="media-body">
+                                        <a>
+                                            <h4 class="media-heading mb-1">{{product.username}}</h4>
+                                            <p class="media-text">{{product.createdAt}}</p>
+                                        </a>
+                                    </div>
+                                }
+                                
+                                
+                                <div class="media-right-aligned">
+                                    @if(product.sellerId != userId){
+                                        @if(product.liked){
+                                            <button type="button" class="btn btn-danger btn-icon btn-rounded bs-popover me-3" (click)="chooseProduct(product.id)" data-bs-toggle="modal" data-bs-target="#addWishListModal">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                            </button>
+                                        }
+                                        @else{
+                                            <button type="button" class="btn btn-outline-danger btn-icon btn-rounded bs-popover me-3" (click)="chooseProduct(product.id)"data-bs-toggle="modal" data-bs-target="#addWishListModal">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                            </button>
+                                        }
+                                        <button type="button" class="btn btn-info btn-icon btn-rounded bs-popover" data-bs-container="body" data-bs-trigger="hover" data-bs-content="Add To Card" (click)="addToCart(product.id)">
+                                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 122.88 104.43"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>add-to-cart</title><path class="cls-1" d="M97,0A25.9,25.9,0,1,1,78.67,7.59,25.79,25.79,0,0,1,97,0ZM3.66,10.89a3.71,3.71,0,0,1,0-7.42H9.11A17.3,17.3,0,0,1,18,5.81c4.92,3.12,5.79,7.57,7,12.59H66.7a31,31,0,0,0-.9,7.33H27.14L35.5,57.19H94.77l0-.18c.72.05,1.44.08,2.17.08a31.59,31.59,0,0,0,5.46-.48l-1.29,5.18a3.62,3.62,0,0,1-3.57,2.82H37.47c1.32,4.88,2.63,7.51,4.42,8.74,2.16,1.4,5.92,1.5,12.21,1.4H96.64a3.67,3.67,0,1,1,0,7.33H54.19c-7.79.09-12.58-.09-16.44-2.63s-6-7.14-8.07-15.31h0L17.09,16.52c0-.09,0-.09-.09-.19a6.51,6.51,0,0,0-2.82-4.22A9.51,9.51,0,0,0,9,10.89H3.66ZM60.87,33.47a2.6,2.6,0,0,1,5.11,0V47.63a2.6,2.6,0,0,1-5.11,0V33.47Zm-15.3,0a2.6,2.6,0,0,1,5.11,0V47.63a2.6,2.6,0,0,1-5.11,0V33.47ZM85.66,86.4a9,9,0,1,1-9,9,9,9,0,0,1,9-9Zm-39.55,0a9,9,0,1,1-9,9,9,9,0,0,1,9-9Zm64.08-62.91V28.3a2.09,2.09,0,0,1-2.07,2.07h-6.66V37a2.08,2.08,0,0,1-2.07,2.07H94.58A2.07,2.07,0,0,1,92.51,37V30.37H85.85a2.08,2.08,0,0,1-2.07-2.07V23.49a2.07,2.07,0,0,1,2.07-2.07h6.66V14.76a2.07,2.07,0,0,1,2.07-2.07h4.81a2.08,2.08,0,0,1,2.07,2.07v6.66h6.66a2.08,2.08,0,0,1,2.07,2.07Z"/></svg>
+                                        </button>
+                                    }
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            }
+            
+        }
+    </div>
+}
+@else{
+    <div class="row">
+        @if(productsToDisplay){
+            @for(product of productsToDisplay; track product){
+                <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
+                    <div class="card style-2 mb-md-0 mb-4">
+                        <a [routerLink]="['product-details',{productId:product.id}]" appReloadPage>
+                            @if(product.image.substring(0,5)=="https"){
+                                <img src="{{product.image}}" referrerpolicy="no-referrer" class="card-img-top" alt="..." height="300px">
+                            }
+                            @else {
+                                <img src="{{imageUrl+product.image}}" class="card-img-top" alt="..." height="300px">
+                            }
+                        </a>
+                        <div class="card-body px-0 pb-0">
+                            <div class="row">
+                                <a [routerLink]="['product-details',{productId:product.id}]" class="col-7">
+                                    <h4 class="card-title mb-0">{{truncate(product.name,10, '...')}}</h4>
+                                </a>
+                                <a [routerLink]="['product-details',{productId:product.id}]" class="col-5 text-end">
+                                    <h4 class="mb-1 mt-2 m-lg-6"><b>${{product.price}}</b></h4>
+                                </a>
+                            </div>
+                            
+                            <!-- <h5 class="card-bottom-section">$95.00</h5> -->
+                            <div class="media mt-4 mb-0 pt-1">
+                                <a appReloadPage>
+                                    @if(product.avatar.substring(0,5)=="https"){
+                                        <img src="{{product.avatar}}" referrerpolicy="no-referrer" class="card-media-image me-3" alt="">
+                                    }
+                                    @else {
+                                        <img src="{{imageUrl+product.avatar}}" class="card-media-image me-3" alt="">
+                                    }
+                                </a>
+                                <div class="media-body">
+                                    <a>
+                                        <h4 class="media-heading mb-1">{{product.username}}</h4>
+                                        <p class="media-text">{{product.createdAt}}</p>
+                                    </a>
+                                </div>
+                                <!-- <div class="media-right-aligned">
+                                    @if(product.sellerId != userId){
+                                        <button type="button" class="btn btn-danger btn-icon btn-rounded bs-popover me-3" data-bs-toggle="modal" data-bs-target="#addWishListModal">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                        </button>
+                                        <button type="button" class="btn btn-info btn-icon btn-rounded bs-popover" data-bs-container="body" data-bs-trigger="hover" data-bs-content="Add To Card" (click)="addToCart(product.id)">
+                                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 122.88 104.43"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>add-to-cart</title><path class="cls-1" d="M97,0A25.9,25.9,0,1,1,78.67,7.59,25.79,25.79,0,0,1,97,0ZM3.66,10.89a3.71,3.71,0,0,1,0-7.42H9.11A17.3,17.3,0,0,1,18,5.81c4.92,3.12,5.79,7.57,7,12.59H66.7a31,31,0,0,0-.9,7.33H27.14L35.5,57.19H94.77l0-.18c.72.05,1.44.08,2.17.08a31.59,31.59,0,0,0,5.46-.48l-1.29,5.18a3.62,3.62,0,0,1-3.57,2.82H37.47c1.32,4.88,2.63,7.51,4.42,8.74,2.16,1.4,5.92,1.5,12.21,1.4H96.64a3.67,3.67,0,1,1,0,7.33H54.19c-7.79.09-12.58-.09-16.44-2.63s-6-7.14-8.07-15.31h0L17.09,16.52c0-.09,0-.09-.09-.19a6.51,6.51,0,0,0-2.82-4.22A9.51,9.51,0,0,0,9,10.89H3.66ZM60.87,33.47a2.6,2.6,0,0,1,5.11,0V47.63a2.6,2.6,0,0,1-5.11,0V33.47Zm-15.3,0a2.6,2.6,0,0,1,5.11,0V47.63a2.6,2.6,0,0,1-5.11,0V33.47ZM85.66,86.4a9,9,0,1,1-9,9,9,9,0,0,1,9-9Zm-39.55,0a9,9,0,1,1-9,9,9,9,0,0,1,9-9Zm64.08-62.91V28.3a2.09,2.09,0,0,1-2.07,2.07h-6.66V37a2.08,2.08,0,0,1-2.07,2.07H94.58A2.07,2.07,0,0,1,92.51,37V30.37H85.85a2.08,2.08,0,0,1-2.07-2.07V23.49a2.07,2.07,0,0,1,2.07-2.07h6.66V14.76a2.07,2.07,0,0,1,2.07-2.07h4.81a2.08,2.08,0,0,1,2.07,2.07v6.66h6.66a2.08,2.08,0,0,1,2.07,2.07Z"/></svg>
+                                        </button>
+                                    }
+                                    
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            }
+            
+        }
+    </div>
+}
+
+
+
+<div class="modal no-add-wl animated zoomInUp custo-zoomInUp" id="addWishListModal" tabindex="-1" aria-labelledby="addWishListModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAddressModalLabel">Add WishList</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <div class="modal-body d-flex flex-column justify-content-center align-items-center" style="padding: 30px;">
+                <!-- <p>Changes to your New <span class="text-success">Billing</span> Information.</p> -->
+                <form [formGroup]="createWishList" (ngSubmit)="addWishList()" class="col-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label">Name WishList: </label>
+                                <input type="text" class="form-control" placeholder="Enter name" (change)="newWishList($event)" formControlName="name">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label">Choose WishList: </label>
+                                <select class="form-control" (change)="chooseWishList($event)" >
+                                    <option value="">Default select</option>
+                                    @if(wishlistsSelect!=null){
+                                        @for(wishlist of wishlistsSelect;track wishlist){
+                                            <option value="{{wishlist}}">{{wishlist}}</option>
+                                        }
+                                    }
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="padding-right: 30px; padding-left: 30px;" [disabled]="createWishList.invalid">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pagination-no_spacing">
+    <ul class="pagination">
+        @if(currentPage >= 4){
+            @if(currentPage > 1){
+                <li>
+                    <a href="javascript:void(0);" class="prev" (click)="onPreviousPage()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </a>
+                </li>
+            }
+            @if(isFirstPageVisible()){
+                <li>
+                    <a href="javascript:void(0);" (click)="goToFirstPage()">
+                        1
+                      </a>
+                </li>
+            }
+            @if(shouldShowFirstEllipsis()){
+                <li>
+                    <span>...</span>
+                </li>
+            }
+        }
+        
+        @for(pageNumber of getPageNumbers(); track pageNumber){
+            <li>
+                <a href="javascript:void(0);" (click)="onPageChange(pageNumber)" [ngClass]="{ 'active': pageNumber === currentPage }">
+                    {{ pageNumber }}
+                </a>
+            </li>
+        }
+        
+        @if(currentPage <= totalPages - 3 ){
+            @if(shouldShowEllipsis()){
+                <li>
+                    <span>...</span>
+                </li>
+            }
+            @if(isLastPageVisible()){
+                <li>
+                    <a href="javascript:void(0);" (click)="goToLastPage()">
+                        {{ totalPages }}
+                      </a>
+                </li>
+            }
+            @if(currentPage < next()){
+                <li>
+                    <a href="javascript:void(0);" class="next" (click)="onNextPage()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                </li>
+            }
+        }
+        
+        
+    </ul>
+</div>

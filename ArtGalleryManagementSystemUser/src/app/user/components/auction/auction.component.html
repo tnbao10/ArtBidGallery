@@ -1,0 +1,148 @@
+<div class="row post-title mt-4">
+  <h1>Auction Event</h1>
+</div>
+<div class="row mt-4 mb-4">
+  <svg
+    width="515"
+    height="25"
+    viewBox="0 0 275 15"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect y="7" width="120" height="1" fill="#CCCCCC"></rect>
+    <rect x="155" y="7" width="120" height="1" fill="#CCCCCC"></rect>
+    <path
+      d="M144.443 14.6458C144.207 14.8818 143.897 15 143.588 15C143.278 15 142.968 14.8818 142.732 14.6454L137.874 9.78689C137.517 9.43023 137.43 8.90654 137.612 8.46798L136.617 7.47264L135.242 8.84723C135.517 9.2862 135.458 9.8809 135.066 10.2714C134.614 10.7245 133.888 10.7342 133.448 10.2936L130.324 7.17126C129.883 6.73028 129.893 6.00566 130.347 5.55298C130.738 5.16122 131.332 5.10231 131.771 5.37788L135.378 1.77014C135.102 1.33158 135.161 0.737682 135.553 0.346326C136.006 -0.10676 136.73 -0.116443 137.171 0.324136L140.295 3.44732C140.736 3.8879 140.726 4.61251 140.272 5.0656C139.88 5.45736 139.287 5.51586 138.849 5.2407L137.472 6.6169L138.59 7.73449C138.945 7.69334 139.314 7.80348 139.586 8.07622L144.444 12.9347C144.916 13.4071 144.916 14.1729 144.443 14.6458Z"
+      fill="#0543ec"
+    ></path>
+  </svg>
+</div>
+<div class="row">
+@for(product of auctionProducts; track product){
+  <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-12">
+    <div class="card style-2 mb-md-0 mb-4">
+      <a
+        class="card style-7"
+        [routerLink]="['../auction-detail',{bidId:product.id}]"
+      >
+      @if(product.productImage.substring(0,5)=="https"){
+        <img [routerLink]="['../auction-detail',{bidId:product.id}]" src="{{product.productImage}}" class="card-img-top" alt="..." style="max-height: 20em; " />
+      }
+      @else {
+          <img [routerLink]="['../auction-detail',{bidId:product.id}]" src="{{imageUrl+product.productImage}}" class="card-img-top" alt="..." style="max-height: 20em; "/>
+      }
+        <div class="card-footer">
+          <div class="row">
+            <strong
+              ><h5 style="color: white; text-align: center">
+                {{ product.auctionInfomation }}
+              </h5></strong
+            >
+          </div>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-2">
+              <h6 style="color: white; text-align: center">
+                <strong>{{product.auctionHour}}</strong>
+              </h6>
+            </div>
+            <div class="col-2">
+              <h6 style="color: white; text-align: center">
+                <strong>:</strong>
+              </h6>
+            </div>
+            <div class="col-2">
+              <h6 style="color: white; text-align: center">
+                <strong>{{ product.auctionMin }}</strong> 
+              </h6>
+            </div>
+            <div class="col-2">
+              <h6 style="color: white; text-align: center">
+                <strong>:</strong>
+              </h6>
+            </div>
+            <div class="col-2">
+              <h6 style="color: white; text-align: center">
+                <strong>{{ product.auctionSec }}</strong>
+              </h6>
+            </div>
+            <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1"></div>
+          </div>
+          <div class="row">
+            <div
+              style="text-align: center; color: white"
+              class="col-4 "
+            >
+              Hours
+            </div>
+            <div
+              style="text-align: center; color: white"
+              class="col-4"
+            >
+              Mins
+            </div>
+            <div
+              style="text-align: center; color: white"
+              class="col-4"
+            >
+              Secs
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <div class="card-body px-0 pb-0">
+        <h5 class="card-title mb-3 text-center">{{product.productName}}</h5>
+        <div class="media mt-4 mb-0 pt-1">
+          <a [routerLink]="['../profile',{sellerId:product.sellerId}]" appReloadPage>
+            @if(product.productSellerAvatar.substring(0,5)=="https"){
+              <img src="{{product.productSellerAvatar}}" class="card-media-image me-3" alt="">
+            }
+            @else {
+                <img src="{{imageUrl+product.productSellerAvatar}}" class="card-media-image me-3" alt="">
+
+            }
+          </a>
+          <div class="media-body">
+              <a [routerLink]="['../profile',{sellerId:product.sellerId}]">
+                  <h4 class="media-heading mb-1">{{product.productSeller}}</h4>
+              </a>
+          </div>
+          <div class="media-right-aligned">
+            <div class="text-end">
+              <h4 class="mb-1 mt-2 m-lg-6"><b>${{product.bidBasePrice}}</b></h4>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+}
+  
+</div>
+
+<div class="pagination-no_spacing">
+  <ul class="pagination">
+      @if(currentPage > 1){
+          <li>
+              <a href="javascript:void(0);" class="prev" (click)="onPreviousPage()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </a>
+          </li>
+      }
+      @for(pageNumber of getPageNumbers(); track pageNumber){
+          <li>
+              <a href="javascript:void(0);" (click)="onPageChange(pageNumber)" [ngClass]="{ 'active': pageNumber === currentPage }">
+                  {{ pageNumber }}
+              </a>
+          </li>
+      }
+      @if(currentPage < next()){
+          <li>
+              <a href="javascript:void(0);" class="next" (click)="onNextPage()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+          </li>
+      }
+  </ul>
+</div>

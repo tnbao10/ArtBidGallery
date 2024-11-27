@@ -1,0 +1,253 @@
+@if(bidInfo){
+    <div class="row layout-top-spacing">
+
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+            @if(productInfo){
+            <div class="widget-content widget-content-area br-8">
+    
+                <div class="row justify-content-center">
+                    <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-7 col-sm-9 col-12 pe-3">
+                        <!-- Swiper -->
+                            
+                            <div id="main-slider" class="splide">
+                                <div class="splide__track">
+                                        <ul class="splide__list">
+                                            <li class="splide__slide">
+                                                @if(productInfo.image.substring(0,5)=="https"){
+                                                    <a href="{{productInfo.image}}" class="glightbox">
+                                                        <img alt="ecommerce" src="{{productInfo.image}}">
+                                                    </a>
+                                                }
+                                                @else {
+                                                    <a href="{{imageUrl+productInfo.image}}" class="glightbox">
+                                                        <img alt="ecommerce" src="{{imageUrl+productInfo.image}}">
+                                                    </a>
+                                                } 
+                                            </li>
+                                            <!-- <li class="splide__slide">
+                                                <a href="../src/assets/img/ecommerce-2.jpg" class="glightbox">
+                                                    <img alt="ecommerce" src="../src/assets/img/ecommerce-2.jpg">
+                                                </a>
+                                            </li>
+                                            <li class="splide__slide">
+                                                <a href="../src/assets/img/ecommerce-4.jpg" class="glightbox">
+                                                    <img alt="ecommerce" src="../src/assets/img/ecommerce-4.jpg">
+                                                </a>
+                                            </li>
+                                            <li class="splide__slide">
+                                                <a href="../src/assets/img/ecommerce-5.jpg" class="glightbox">
+                                                    <img alt="ecommerce" src="../src/assets/img/ecommerce-5.jpg">
+                                                </a>
+                                            </li>
+                                            <li class="splide__slide">
+                                                <a href="../src/assets/img/ecommerce-6.jpg" class="glightbox">
+                                                    <img alt="ecommerce" src="../src/assets/img/ecommerce-6.jpg">
+                                                </a>
+                                            </li> -->
+                                        </ul>
+                                </div>
+                                </div>
+        
+                                <div id="thumbnail-slider" class="splide">
+                                <div class="splide__track">
+                                        <ul class="splide__list">                               
+                                            <li class="splide__slide">
+        
+                                                @if(productInfo.image.substring(0,5)=="https"){
+                                                    <img alt="ecommerce" src="{{productInfo.image}}">
+                                                }
+                                                @else {
+                                                    <img alt="ecommerce" src="{{imageUrl+productInfo.image}}">
+                                                }
+                                            
+                                            </li>
+                                            <!-- <li class="splide__slide"><img alt="ecommerce" src="../src/assets/img/ecommerce-2.jpg"></li>
+                                            <li class="splide__slide"><img alt="ecommerce" src="../src/assets/img/ecommerce-4.jpg"></li>
+                                            <li class="splide__slide"><img alt="ecommerce" src="../src/assets/img/ecommerce-5.jpg"></li>
+                                            <li class="splide__slide"><img alt="ecommerce" src="../src/assets/img/ecommerce-6.jpg"></li> -->
+                                        </ul>
+                                </div>
+                                </div>
+                            
+                        
+    
+                    </div>
+    
+                    <div class="col-xxl-4 col-xl-5 col-lg-12 col-md-12 col-12 mt-xl-0 mt-5 align-self-center">
+    
+                        <div class="product-details-content">
+                        
+                            
+                            <h3 class="product-title mb-0">{{productInfo.name}}</h3>
+    
+    
+                            <div class="row">
+    
+                                <div class="col-md-6 col-sm-6 col-9">
+    
+                                    <div class="pricing">
+    
+                                        <span class="discounted-price"> Current bid: ${{currentBid}}</span>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-6 text-end align-middle">
+                                    
+                                    <span class="regular-price"> Starting bid:&nbsp;</span>
+                                    <span class="pricing">
+                                        <span class="regular-price">${{bidInfo.bidBasePrice}}</span>
+                                    </span>
+                                </div>
+                                
+                            </div>                                            
+                            
+                            <hr class="mb-4">
+                            @for (a of productInfo.productAttributes; track a) {
+                                <div class="row size-selector mb-3">
+                                    <div class="col-xl-9 col-lg-6 col-sm-6 align-self-center mt-sm-3"> {{a.type}}: {{a.value}}</div>
+                                </div>
+                            }
+    
+                            <div class="row quantity-selector mt-4">
+                                <div class="col-xl-4 col-lg-4 col-sm-4">{{bidInfo.auctionInfomation}}</div>
+                                <div class="col-xl-8 col-lg-8 col-sm-8 text-end">
+                                    <span>{{bidInfo.auctionHour}}:{{bidInfo.auctionMin}}:{{bidInfo.auctionSec}}</span>
+                                </div>
+                            </div>
+    
+                            <hr class="mb-2 mt-2">
+        
+                            <div class="action-button text-center">
+                                <div class="row mb-3">
+                                    
+                                    <div class="col-xxl-12 col-xl-12 col-sm-12 mb-sm-0 mb-3">
+                                        <div class="input-group mb-3">
+                                            <button class="btn btn-primary" type="button" (click)="lowerBid()">-</button>
+                                            <input type="text" class="form-control" style=" text-align: center;" placeholder="{{bidPlus}}" readonly >
+                                            <button class="btn btn-primary" type="button" (click)="raiseBid()">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+    
+                                    <div class="col-xxl-4 col-xl-4 col-sm-4 mb-sm-0 mb-3">
+                                        <button class="btn btn-primary w-100 btn-lg2" (click) ="Bid()">
+                                            <img src="icon/bid.svg"  type="image/svg+xml" width="60" height="60" viewbox="0 0 60 60">
+                                            <span>&nbsp;&nbsp;</span>
+                                                <span class="btn-text-inner">Bid</span>
+                                        </button>
+                                    </div>
+    
+                                    <div class="col-xxl-8 col-xl-8 col-sm-8">
+                                        <button (click)="usePay()" data-bs-toggle="modal"
+                                        data-bs-target="#PayBidOrder" class="btn btn-success w-100 btn-lg pt-4 pb-4">Buy now for ${{bidInfo.bidSoldPrice}}</button>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+    
+            </div>
+        }
+        </div>
+    
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+    
+            <div class="widget-content widget-content-area br-8">
+    
+                <div class="production-descriptions simple-pills">
+    
+                    <div class="pro-des-content">
+    
+                        
+                        
+                        <div id="iconsAccordion" class="accordion-icons accordion">
+    
+                            <div class="card" (click)="findHistory()">
+                                <div class="card-header" id="headingTwo3">
+                                    <section class="mb-0 mt-0">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionTwo" aria-expanded="false" aria-controls="iconAccordionTwo">
+                                            <img [src]="theme ? 'icon/auction-history.svg' : 'icon/auction-history-black.svg'" type="image/svg+xml" width="30" height="30" viewbox="0 0 30 30" class="auction-history">
+                                            Auction history  <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id="iconAccordionTwo" class="collapse" aria-labelledby="headingTwo3" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                
+                                        <div class="row">
+                                                                                                        
+                                            <div class="col-md-12 mx-auto">
+                                                <div class="media mb-4">
+                                                    <div class="avatar me-sm-4 mb-sm-0 me-0 mb-3">
+                                                        <p>Avatar</p>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="row">
+                                                            <div class="col-4">Username</div>
+                                                            <div class="col-4">Transaction Time</div>
+                                                            <div class="col-4">Transaction Amount</div>                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>   
+                                                @for(bidOrderUser of bidHistory;track bidOrderUser){
+                                                    <div class="media mb-4">
+                                                        <div class="avatar me-sm-4 mb-sm-0 me-0 mb-3">
+                                                            @if(bidOrderUser.avatar.substring(0,5)=="https"){                                                               
+                                                                <img alt="avatar" src="{{bidOrderUser.avatar}}" class="rounded-circle">               
+                                                            }
+                                                            @else {            
+                                                                <img alt="avatar" src="{{imageUrl+bidOrderUser.avatar}}" class="rounded-circle"> 
+                                                            } 
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <div class="row">
+                                                                <div class="col-4">{{bidOrderUser.username}}</div>
+                                                                <div class="col-4">{{bidOrderUser.bidTransactionTime}}</div>
+                                                                <div class="col-4">{{bidOrderUser.bidTransactionAmount}}</div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }    
+                                                                                              
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            
+        </div>
+    
+    </div>
+
+
+}
+<!-- Modal Structure (ADD ADDRESS)-->
+<div class="modal animated zoomInUp custo-zoomInUp addaddress" id="PayBidOrder" tabindex="-1" aria-labelledby="addAddressModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="addAddressModalLabel">Add Billing Address</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+        <div class="modal-body d-flex flex-column justify-content-center align-items-center" style="padding: 30px;">
+            <ngx-paypal [config]="payPalConfig"></ngx-paypal>  
+        </div>
+    </div>
+</div>
+</div>

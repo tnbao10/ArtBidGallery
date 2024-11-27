@@ -1,0 +1,278 @@
+<div class="auth-container d-flex">
+
+    <div class="container mx-auto align-self-center">
+
+        <div class="row">
+
+            <div class="col-6 d-lg-flex d-none h-100 my-auto top-0 start-0 text-center justify-content-center flex-column">
+
+                <div style="background-image: url(src/assets/img/TranhArt.jpg); 
+                                background-repeat: no-repeat;
+                                background-size: cover; 
+                                background-position: center; " class="auth-overlay">
+                </div>
+                <div class="auth-cover" style="position: relative; height: 100%;">
+                    <div class="position-absolute" style="bottom: 200; width: 100%;">
+                        <h2 class="mt-5 text-white font-weight-bolder px-2">
+                            "Welcome to a World of Art - Where Every Canvas Tells a Story!"
+                        </h2>
+                        <p class="text-white px-2">
+                            "Bringing Art to Life - Discover Your Perfect Piece Online!"
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center ms-lg-auto me-lg-0 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-4" style="text-align: center;">
+                                   <img style="width: auto; height: 100px;" src="../src/assets/img/logo2.svg" alt="">
+                                </div>
+                            </div>
+                            <div style="text-align: center;" class="col-md-12 mb-3">
+                                <h2 class="fs-10 fw-bolder">Sign Up</h2>
+                            </div>
+                            <form class="row" [formGroup]="registerForm" (ngSubmit)="Register()">
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Username: </label>
+                                        <input type="text" class="form-control add-billing-address-input" formControlName="username">
+                                        @if(registerForm.get('username').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['username'])){
+                                                    <li style="padding-top: 5px; color: red;">Username is blank</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="">
+                                        <label class="form-label">First Name: </label>
+                                        <input type="text" class="form-control add-billing-address-input" formControlName="firstName">
+                                        @if(registerForm.get('firstName').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['firstName'])){
+                                                    <li style="padding-top: 5px; color: red;">First Name is blank</li>
+                                                }
+                                                @else if(registerForm.hasError('pattern',['firstName'])){
+                                                    <li style="padding-top: 5px; color: red;">First Name must contain at uppercase the first letter</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Last Name: </label>
+                                        <input type="text" class="form-control add-billing-address-input" formControlName="lastName">
+                                        @if(registerForm.get('lastName').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['lastName'])){
+                                                    <li style="padding-top: 5px; color: red;">Last Name is blank</li>
+                                                }
+                                                @else if(registerForm.hasError('pattern',['lastName'])){
+                                                    <li style="padding-top: 5px; color: red;">Last Name must contain at uppercase the first letter</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+
+                               
+
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email: </label>
+                                        <input type="email" class="form-control" formControlName="email">
+                                        @if(registerForm.get('email').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['email'])){
+                                                    <li style="padding-top: 5px; color: red;">Email is blank</li>
+                                                }
+                                                @if(registerForm.hasError('email',['email'])){
+                                                    <li style="padding-top: 5px; color: red;">Email invalid</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Password: </label>
+                                        <div class="input-group mb-3">
+                                            <input [type]="typeInput" class="form-control" formControlName="password" aria-describedby="basic-addon2">
+                                            @if(typeInput == 'text'){
+                                                <a href="javascript:void(0);" (click)="hide()" class="input-group-text-nohover" id="basic-addon2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                </a>
+                                            }
+                                            @else if(typeInput == 'password'){
+                                                <a href="javascript:void(0);" (click)="show()" class="input-group-text-nohover" id="basic-addon2" >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                                                </a>
+                                            }
+                                        </div>
+                                        @if(registerForm.get('password').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['password'])){
+                                                    <li style="padding-top: 5px; color: red;">password is blank.</li>
+                                                }
+                                                @if(registerForm.hasError('length', ['password'])){
+                                                    <li style="padding-top: 5px; color: red;">Password must be between 6 and 20 characters.</li>
+                                                }
+                                                @if(registerForm.hasError('digit', ['password'])){
+                                                    <li style="padding-top: 5px; color: red;">Password must contain at least one digit.</li>
+                                                }
+                                                @if(registerForm.hasError('lowercase', ['password'])){
+                                                    <li style="padding-top: 5px; color: red;">Password must contain at least one lowercase letter.</li>
+                                                }
+                                                @if(registerForm.hasError('uppercase', ['password'])){
+                                                    <li style="padding-top: 5px; color: red;">Password must contain at least one uppercase letter.</li>
+                                                }
+                                                @if(registerForm.hasError('specialCharacter', ['password'])){
+                                                    <li style="padding-top: 5px; color: red;">Password must contain at least one special character.</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Confirm Password: </label>
+                                        <div class="input-group mb-3">
+                                            <input [type]="typeInputRe" class="form-control" formControlName="rePassword" aria-describedby="basic-addon2">
+                                            @if(typeInputRe == 'text'){
+                                                <a href="javascript:void(0);" (click)="hideRe()" class="input-group-text-nohover" id="basic-addon2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                </a>
+                                            }
+                                            @else if(typeInputRe == 'password'){
+                                                <a href="javascript:void(0);" (click)="showRe()" class="input-group-text-nohover" id="basic-addon2" >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                                                </a>
+                                            }
+                                        </div>
+                                        @if(registerForm.get('rePassword').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['rePassword'])){
+                                                    <li style="padding-top: 5px; color: red;">Confirm password is blank</li>
+                                                }
+                                                @if(registerForm?.errors?.['mismatch']){
+                                                    <li style="padding-top: 5px; color: red;">Wrong confirm password</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="rangeCalendarFlatpickr">Day of Birth: </label>
+                                        <input id="rangeCalendarFlatpickr" class="form-control" type="text" readonly="readonly" formControlName="birthOfDate">
+                                        @if(registerForm.get('birthOfDate').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['birthOfDate'])){
+                                                    <li style="padding-top: 5px; color: red;">Day of Birth is blank</li>
+                                                }
+                                                @else if(registerForm.hasError('pattern',['birthOfDate'])){
+                                                    <li style="padding-top: 5px; color: red;">You must be over 18 and under 60 years old</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="gender">Gender: </label>
+                                        <select class="form-control" id="gender" name="gender" formControlName="gender">
+                                            <option value="">Choose your gender ....</option>
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                            <option value="3">Others</option>
+                                        </select>
+                                        @if(registerForm.get('gender').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['gender'])){
+                                                    <li style="padding-top: 5px; color: red;">Gender is blank</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone Number: </label>
+                                        <input type="text" class="form-control" formControlName="phoneNumber">
+                                        @if(registerForm.get('phoneNumber').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['phoneNumber'])){
+                                                    <li style="padding-top: 5px; color: red;">Phone Number is blank</li>
+                                                }
+                                                @else if(registerForm.hasError('pattern',['phoneNumber'])){
+                                                    <li style="padding-top: 5px; color: red;">Phone Number invalid</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="role">Role: </label>
+                                        <select class="form-control" id="role" name="role" formControlName="role">
+                                            <option value="">Choose your role ....</option>
+                                            <option value="1">Buyer</option>
+                                            <option value="2">Seller</option>
+                                        </select>
+                                        @if(registerForm.get('role').touched){
+                                            <ul>
+                                                @if(registerForm.hasError('required',['role'])){
+                                                    <li style="padding-top: 5px; color: red;">Role is blank</li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-4">
+                                        <button type="submit" class="btn btn-secondary w-100 icon-error" [disabled]="registerForm.invalid">SIGN UP</button>
+                                    </div>
+                                </div>    
+                                <!-- <div class="col-12">
+                                    <div class="mb-3">
+                                        <div class="form-check form-check-primary form-check-inline">
+                                            <input class="form-check-input me-3" type="checkbox" id="form-check-default" formControlName="check">
+                                            <label class="form-check-label" for="form-check-default">
+                                                I agree the <span class="text-danger">Terms and
+                                                    Conditions</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </form>
+                            
+                            <div class="col-12">
+                                <div class="text-center">
+                                    <p class="mb-3">You have an account ? <a [routerLink]="['/login']"
+                                            class="text-warning">Sign In</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    

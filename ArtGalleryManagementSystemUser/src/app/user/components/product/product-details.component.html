@@ -1,0 +1,1179 @@
+@if(user!=null){
+    <div class="row layout-top-spacing">
+    @if(product!=null){
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+            
+            <div class="widget-content widget-content-area br-8">
+    
+                <div class="row justify-content-center">
+                    <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-7 col-sm-9 col-12 pe-3">
+                        <!-- Swiper -->
+                        <div id="main-slider" class="splide">
+                            <div class="splide__track">
+                                    <ul class="splide__list">
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }                                        
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }  
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }  
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }  
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }  
+                                        </li>
+                                    </ul>
+                            </div>
+                            </div>
+    
+                            <div id="thumbnail-slider" class="splide">
+                            <div class="splide__track">
+                                    <ul class="splide__list">
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <img alt="ecommerce" src="{{product.image}}">
+                                            }
+                                            @else {
+                                                <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                            }
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <img alt="ecommerce" src="{{product.image}}">
+                                            }
+                                            @else {
+                                                <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                            }
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <img alt="ecommerce" src="{{product.image}}">
+                                            }
+                                            @else {
+                                                <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                            }
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <img alt="ecommerce" src="{{product.image}}">
+                                            }
+                                            @else {
+                                                <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                            }
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <img alt="ecommerce" src="{{product.image}}">
+                                            }
+                                            @else {
+                                                <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                            }
+                                        </li>
+                                    </ul>
+                            </div>
+                            
+                            </div>
+                            
+    
+                    </div>
+    
+                    <div class="col-xxl-5 col-xl-5 col-lg-12 col-md-12 col-12 mt-xl-0 mt-5 align-self-center">
+    
+                        <div class="product-details-content">
+                            
+                            <!-- <span class="badge badge-light-danger mb-3">40% Sale off</span> -->
+                            <!-- Show đường dẫn khi chọn skus -->
+                            
+                            <div class="post-meta-info d-flex justify-content-between">
+                                <div>
+                                    <h3 class="product-title mb-0 me-2">{{product.name}}</h3>
+                                    <!-- lượt đánh giá -->
+                                        
+                                    <a href="user/product-details/#comment" class="review mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                        @if(reviews==0){
+                                            <span class="rating-score">&nbsp;0&nbsp;<span class="rating-count">({{ratingcount}} Reviews)</span></span>
+                                        }
+                                        @else{
+                                            <span class="rating-score">&nbsp;{{rating}}<span class="rating-count">({{ratingcount}} Reviews)</span></span>
+                                        }
+                                        
+                                    </a>
+                                </div>
+                                <a [routerLink]="['../profile',{sellerId:product.sellerId}]" class="post-meta-info d-flex justify-content-between">
+                                    
+                                    <div class="media-body align-middle mt-4">
+                                        <h4 class="media-heading mx-2">{{product.username}}</h4>
+                                        <!-- <p class="media-text mx-3">01 May</p> -->
+                                    </div>
+                                    <div class="avatar avatar-xl">
+                                        @if(product.avatar.substring(0,5)=="https"){
+                                            <img alt="avatar" referrerpolicy="no-referrer" src="{{product.avatar}}" class="rounded-circle" />
+
+                                        }
+                                        @else {
+                                            <img alt="avatar" referrerpolicy="no-referrer" src="{{imageUrl + product.avatar}}" class="rounded-circle" />
+
+                                        }
+                                    </div>
+                                </a>
+                            </div>
+                            
+    
+                            <div class="row">
+    
+                                <div class="col-md-9 col-sm-9 col-9">
+    
+                                    <div class="pricing">
+    
+                                        <span class="discounted-price">${{product.price}}</span>
+                                        <!-- <span class="regular-price">$30</span>   -->
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>                                            
+    
+                            <hr class="mb-3">
+                            
+                            @for (a of product.productAttributes; track a) {
+                                <div class="row size-selector mb-3">
+                                    <div class="col-xl-9 col-lg-6 col-sm-6 align-self-center mt-sm-3"> {{a.type}}: {{a.value}}</div>
+                                </div>
+                            }
+                            
+                            <hr class="mb-3">
+    
+                            <div class="action-button text-center">
+    
+                                <div class="row quantity-selector mb-4">
+                                    <div class="col-xxl-7 col-xl-7 col-sm-6 mb-sm-0 mb-3" style="text-align: left;">
+                                            <div class="col-xl-6 col-lg-6 col-sm-6"> Know the artist:</div>
+                                            <!-- CHỖ NÀY LINK TỚI PROFILE ARTIST -->
+                                    </div>
+                                    <div class="col-xxl-5 col-xl-5 col-sm-6">
+                                        <div >{{product.username}}</div>
+                                    </div>
+                                    <br>
+                                    <div class="col-xxl-7 col-xl-7 col-sm-6 mb-sm-0 mb-3 mt-4" style="text-align: left;">
+                                        <div class="col-xl-6 col-lg-6 col-sm-6" > Availability:</div>
+                                    </div>
+                                    <div class="col-xxl-5 col-xl-5 col-sm-6 mt-4  ">
+                                        @if(product.quantity < 1){
+                                            <div style="color: red; font-weight: 300;">Sold Out</div> 
+                                        }
+                                        @else{
+                                            <div style="color: green; font-weight: 300;">Avilable</div>
+                                        }
+                                        
+                                    </div>
+
+                                    <br>
+                                    @if(product.quantity > 0){
+                                        <div class="col-xxl-7 col-xl-7 col-sm-6 mb-sm-0 mb-3 mt-4" style="text-align: left;">
+                                            <div class="col-xl-6 col-lg-6 col-sm-6" > Quantity:</div>
+                                        </div>
+                                        <div class="col-xxl-5 col-xl-5 col-sm-6 mt-4  ">
+                                            <div class="input-group mb-3">
+                                                <button class="btn btn-primary" type="button" (click)= "minusQuantity()">-</button>
+                                                
+                                                <div class="form-control" style="padding-left:0.5rem; padding-right: 0.5rem; text-align: center;" >{{buyQuantity}}</div>
+                                                <button class="btn btn-primary" type="button" (click)= "addQuantity()">+</button>
+                                            </div>
+                                        </div>
+                                    }
+                                    
+                                    
+                                    @if(product.sellerId != userId){
+                                        @if(product.quantity > 0){
+                                            <div class="col-xxl-7 col-xl-7 col-sm-6 mb-sm-0 mb-3 mt-4">
+                                                <button class="btn btn-warning w-100 btn-lg icon-error" (click)="addToCart(product.id)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> <span class="btn-text-inner">Add To Cart</span></button>
+                                            </div>
+            
+                                            <div class="col-xxl-5 col-xl-5 col-sm-6 mt-4">
+                                                <button class="btn btn btn-danger w-100 btn-lg" (click)="BuyItems()">Buy Now</button>
+                                            </div>
+                                        }
+                                        
+                                    }
+                                    
+                                    
+                                </div>
+                                
+                            </div>
+    
+                            <!-- <div class="secure-info mt-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                <p>Safe and Secure Payments. Easy returns. 100% Authentic products.</p>
+                            </div> -->
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+    
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+    
+            <div class="widget-content widget-content-area br-8">
+    
+                <div class="production-descriptions simple-pills">
+    
+                    <div class="pro-des-content">
+    
+                        <div class="row">
+                            <div class="col-xxl-3 col-xl-8 col-lg-9 col-md-9 col-sm-12 mx-auto">
+                                <div class="product-reviews mb-5">
+                                        
+                                    <div class="row text-center">
+                                        <div class="col-sm-12 align-self-center">
+                                            <div class="reviews">
+                                                @if(ratingcount==0){
+                                                    <h1 class="mb-0">0</h1>
+                                                    <span>({{ratingcount}} reviews)</span>
+                                                }
+                                                @else{
+                                                    <h1 class="mb-0">{{rating}}</h1>
+                                                    <span>({{ratingcount}} reviews)</span>
+                                                }
+                                                
+                                                <div class="stars mt-3 mb-sm-0 mb-4">
+                                                    @if(rating <= 1 && 0 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else if(rating <= 2 && 1 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else if(rating <= 3 && 2 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else if(rating <= 4 && 3 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else if(rating <= 5 && 4 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else{
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-sm-6">
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>5 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning starfive" id="star-five" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>4 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar"  id="star-four"aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>3 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar" id="star-three" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>2 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar" id="star-two" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>1 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar" id="star-one" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                        </div> -->
+                                    </div>
+    
+                                </div>
+    
+                            </div>
+                        </div>
+                        
+                        
+                        <div id="iconsAccordion" class="accordion-icons accordion">
+    
+                            <div class="card">
+                                <div class="card-header" id="headingTwo3">
+                                    <section class="mb-0 mt-0" id="comment">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionTwo" aria-expanded="false" aria-controls="iconAccordionTwo">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
+                                            Reviews  <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id="iconAccordionTwo" class="collapse" aria-labelledby="headingTwo3" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                
+                                        <div class="row">
+                                                                                                        
+                                            <div class="col-md-12 mx-auto">
+    
+                                                
+                                                    @if(reviews!=null){
+                                                        @for(review of reviews;track review){
+                                                            <div class="media mb-4">
+                                                                <div class="avatar me-sm-4 mb-sm-0 me-0 mb-3">
+                                                                    @if(review.userAvatar.substring(0,5)=="https"){
+                                                                        <img alt="avatar" src="{{review.userAvatar}}" referrerpolicy="no-referrer" class="rounded-circle">
+                                                                    }
+                                                                    @else{
+                                                                        <img src="{{imageUrl+review.userAvatar}}"  class="rounded-circle">
+                                                                    }
+                                                                </div>
+                                                                <div class="media-body">
+                                                                    <h4 class="media-heading mb-1">{{review.userName}}</h4>
+                                                                    <div class="stars">
+                                                                        @if(review.rating == 1){
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        }
+                                                                        @else if(review.rating == 2){
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        }
+                                                                        @else if(review.rating == 3){
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        }
+                                                                        @else if(review.rating == 4){
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        }
+                                                                        @else if(review.rating == 5){
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="meta-tags">{{review.createdAt}}</div>
+                                                                    <p class="media-text mt-2">{{review.reviewText}}</p>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                    
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="card">
+                                <div class="card-header" id="headingOne2">
+                                    <section class="mb-0 mt-0">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionOne" aria-expanded="false" aria-controls="iconAccordionOne">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-key"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg></div>
+                                            Authenticity <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+    
+                                <div id="iconAccordionOne" class="collapse" aria-labelledby="headingOne2" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p class="mb-4">We guarantee you the authenticity of this piece with a certificate of authenticity delivered with every piece on our website. There are a few exceptions with some of the artworks from the Digital and Mixed Media category. It is always mentioned whether it is print. You will receive a certificate mentioning the exact amount artists made and what number of prints is your artwork.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            
+                            <div class="card">
+                                <div class="card-header" id="headingOne3">
+                                    <section class="mb-0 mt-0">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionThree" aria-expanded="false" aria-controls="iconAccordionOne">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></div>
+                                            Description <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+    
+                                <div id="iconAccordionThree" class="collapse" aria-labelledby="headingOne3" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                
+                                                <h5><strong>Inspiration</strong></h5>
+                                                <hr/>
+                                                <p class="mb-4">{{product.description}}</p>
+                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                            <!-- <div class="card">
+                                <div class="card-header" id="headingOne4">
+                                    <section class="mb-0 mt-0">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionFour" aria-expanded="false" aria-controls="iconAccordionFour">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
+                                            Shipping Information  <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+    
+                                <div id="iconAccordionFour" class="collapse" aria-labelledby="headingOne4" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+    
+                                                <h5><strong>Shipping methods</strong></h5>
+                                                <hr/>
+                                                <p class="mb-4">The shipping of the art pieces is on average between 7-14 days to arrive in your home. Shipping days may vary depending on the country where the art piece is located and your shipping address. You will have more precise shipping details during checkout. Once the art piece is shipped, you will receive a tracking code to follow the delivery to your home.
+    
+                                                    Not convinced by the art piece you received? No problem, we have a 14-day return policy. Send us back the undamaged art piece within 14 days after you received it, and we will give you a full refund.
+                                                    
+                                                    If you have more questions with shipping, delivery, and return please check the FAQ's page.</p>
+                                                
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="card">
+                                <div class="card-header" id="headingOne4">
+                                    <section class="mb-0 mt-0">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionFive" aria-expanded="false" aria-controls="iconAccordionFour">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
+                                            Renting the Artwok  <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+    
+                                <div id="iconAccordionFive" class="collapse" aria-labelledby="headingOne4" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+    
+                                                <p class="mb-4">Do you like this piece, but you do not want to buy it yet? We offer renting options for 3, 4, or 6 months for you to try it in your home and see if it is the right fit for you. If you are interested in this option, feel free to contact us.</p>
+                                                <div style="text-align: center;">
+                                                    <button class="btn btn-warning mb-2 me-4" (click)="contactUs()">Contact Us</button>
+                                                </div>                                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            
+        </div>
+    }
+    </div>
+}
+@else{
+    <div class="row layout-top-spacing">
+    @if(product!=null){
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+            
+            <div class="widget-content widget-content-area br-8">
+    
+                <div class="row justify-content-center">
+                    <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-7 col-sm-9 col-12 pe-3">
+                        <!-- Swiper -->
+                        
+                    
+                        <div id="main-slider" class="splide">
+                            <div class="splide__track">
+                                    <ul class="splide__list">
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }                                        
+                                        </li>
+                                        <!-- <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }  
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }  
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }  
+                                        </li>
+                                        <li class="splide__slide">
+                                            @if(product.image.substring(0,5)=="https"){
+                                                <a href="{{product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{product.image}}">
+                                                </a>
+                                            }
+                                            @else {
+                                                <a href="{{imageUrl+product.image}}" class="glightbox">
+                                                    <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                                </a>
+                                            }  
+                                        </li> -->
+                                    </ul>
+                            </div>
+                        </div>
+    
+                        <div id="thumbnail-slider" class="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide">
+                                        @if(product.image.substring(0,5)=="https"){
+                                            <img alt="ecommerce" src="{{product.image}}">
+                                        }
+                                        @else {
+                                            <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                        }
+                                    </li>
+                                    <li class="splide__slide">
+                                        @if(product.image.substring(0,5)=="https"){
+                                            <img alt="ecommerce" src="{{product.image}}">
+                                        }
+                                        @else {
+                                            <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                        }
+                                    </li>
+                                    <li class="splide__slide">
+                                        @if(product.image.substring(0,5)=="https"){
+                                            <img alt="ecommerce" src="{{product.image}}">
+                                        }
+                                        @else {
+                                            <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                        }
+                                    </li>
+                                    <li class="splide__slide">
+                                        @if(product.image.substring(0,5)=="https"){
+                                            <img alt="ecommerce" src="{{product.image}}">
+                                        }
+                                        @else {
+                                            <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                        }
+                                    </li>
+                                    <li class="splide__slide">
+                                        @if(product.image.substring(0,5)=="https"){
+                                            <img alt="ecommerce" src="{{product.image}}">
+                                        }
+                                        @else {
+                                            <img alt="ecommerce" src="{{imageUrl+product.image}}">
+                                        }
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                            
+    
+                    </div>
+    
+                    <div class="col-xxl-5 col-xl-5 col-lg-12 col-md-12 col-12 mt-xl-0 mt-5 align-self-center">
+    
+                        <div class="product-details-content">
+                            
+                            <!-- <span class="badge badge-light-danger mb-3">40% Sale off</span> -->
+                            <!-- Show đường dẫn khi chọn skus -->
+                            
+                            <div class="post-meta-info d-flex justify-content-between">
+                                <div>
+                                    <h3 class="product-title mb-0 me-2">{{product.name}}</h3>
+                                    <!-- lượt đánh giá -->
+                                        
+                                    <a href="user/product-details/#comment" class="review mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                        @if(reviews==0){
+                                            <span class="rating-score">&nbsp;0&nbsp;<span class="rating-count">({{ratingcount}} Reviews)</span></span>
+                                        }
+                                        @else{
+                                            <span class="rating-score">&nbsp;{{rating}}&nbsp;<span class="rating-count">({{ratingcount}} Reviews)</span></span>
+                                        }
+                                        
+                                    </a>
+                                </div>
+                                <a [routerLink]="['../profile',{sellerId:product.sellerId}]" class="post-meta-info d-flex justify-content-between">
+                                    
+                                    <div class="media-body align-middle mt-4">
+                                        <h4 class="media-heading mx-2">{{product.username}}</h4>
+                                        <!-- <p class="media-text mx-3">01 May</p> -->
+                                    </div>
+                                    <div class="avatar avatar-xl">
+                                        @if(product.avatar.substring(0,5)=="https"){
+                                            <img alt="avatar" referrerpolicy="no-referrer" src="{{product.avatar}}" class="rounded-circle" />
+
+                                        }
+                                        @else {
+                                            <img alt="avatar" referrerpolicy="no-referrer" src="{{imageUrl + product.avatar}}" class="rounded-circle" />
+
+                                        }
+                                    </div>
+                                </a>
+                            </div>
+                            
+    
+                            <div class="row">
+    
+                                <div class="col-md-9 col-sm-9 col-9">
+    
+                                    <div class="pricing">
+    
+                                        <span class="discounted-price">${{product.price}}</span>
+                                        <!-- <span class="regular-price">$30</span>   -->
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>                                            
+    
+                            <hr class="mb-3">
+                            @for (a of product.productAttributes; track a) {
+                                <div class="row size-selector mb-3">
+                                    <div class="col-xl-9 col-lg-6 col-sm-6 align-self-center mt-sm-3"> {{a.type}}: {{a.value}}</div>
+                                </div>
+                            }                          
+                            <hr class="mb-3">
+    
+                            <div class="action-button text-center">
+    
+                                <div class="row quantity-selector mb-4">
+                                    <div class="col-xxl-7 col-xl-7 col-sm-6 mb-sm-0 mb-3" style="text-align: left;">
+                                            <div class="col-xl-6 col-lg-6 col-sm-6"> Know the artist:</div>
+                                            <!-- CHỖ NÀY LINK TỚI PROFILE ARTIST -->
+                                    </div>
+                                    <div class="col-xxl-5 col-xl-5 col-sm-6">
+                                        <div [routerLink]="['../profile',{sellerId:product.sellerId}]">{{product.username}}</div>
+                                    </div>
+                                    <br>
+                                    <div class="col-xxl-7 col-xl-7 col-sm-6 mb-sm-0 mb-3 mt-4" style="text-align: left;">
+                                        <div class="col-xl-6 col-lg-6 col-sm-6" > Availability:</div>
+                                    </div>
+                                    <div class="col-xxl-5 col-xl-5 col-sm-6 mt-4  ">
+                                        @if(product.quantity < 1){
+                                            <div style="color: red; font-weight: 300;">Sold Out</div> 
+                                        }
+                                        @else{
+                                            <div style="color: green; font-weight: 300;">Avilable</div>
+                                        }
+                                        <!-- CHỖ NÀY CÓ ĐỔI MÀU: XANH - CÒN HÀNG, ĐỎ HẾT HÀNG -->
+                                    </div>
+                                    
+                                    @if(product.sellerId != userId){
+                                        @if(product.quantity > 0){
+                                            <div class="col-xxl-7 col-xl-7 col-sm-6 mb-sm-0 mb-3 mt-4">
+                                                <button class="btn btn-warning w-100 btn-lg icon-error" (click)="login()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> <span class="btn-text-inner">Add To Cart</span></button>
+                                            </div>
+            
+                                            <div class="col-xxl-5 col-xl-5 col-sm-6 mt-4">
+                                                <button class="btn btn btn-danger w-100 btn-lg" (click)="login()">Buy Now</button>
+                                            </div>
+                                        }
+                                    }
+                                    
+                                    
+                                </div>
+                                
+                            </div>
+    
+                            <!-- <div class="secure-info mt-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                <p>Safe and Secure Payments. Easy returns. 100% Authentic products.</p>
+                            </div> -->
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+    
+            <div class="widget-content widget-content-area br-8">
+    
+                <div class="production-descriptions simple-pills">
+    
+                    <div class="pro-des-content">
+    
+                        <div class="row">
+                            <div class="col-xxl-3 col-xl-8 col-lg-9 col-md-9 col-sm-12 mx-auto">
+                                <div class="product-reviews mb-5">
+                                        
+                                    <div class="row text-center">
+                                        <div class="col-sm-12 align-self-center">
+                                            <div class="reviews">
+                                                @if(ratingcount==0){
+                                                    <h1 class="mb-0">0</h1>
+                                                    <span>({{ratingcount}} reviews)</span>
+                                                }
+                                                @else{
+                                                    <h1 class="mb-0">{{rating}}</h1>
+                                                    <span>({{ratingcount}} reviews)</span>
+                                                }
+                                                
+                                                <div class="stars mt-3 mb-sm-0 mb-4">
+                                                    @if(rating <= 1 && 0 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else if(rating <= 2 && 1 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else if(rating <= 3 && 2 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else if(rating <= 4 && 3 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else if(rating <= 5 && 4 < rating){
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    @else{
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                    }
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-sm-6">
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>5 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning starfive" id="star-five" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>4 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar"  id="star-four"aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>3 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar" id="star-three" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>2 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar" id="star-two" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row review-progress mb-sm-1 mb-3">
+                                                <div class="col-sm-4">
+                                                    <p>1 Star</p>
+                                                </div>
+                                                <div class="col-sm-8 align-self-center">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar" id="star-one" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                        </div> -->
+                                    </div>
+    
+                                </div>
+    
+                            </div>
+                        </div>
+                        
+                        
+                        <div id="iconsAccordion" class="accordion-icons accordion">
+    
+                            <div class="card">
+                                <div class="card-header" id="headingTwo3">
+                                    <section class="mb-0 mt-0" id="comment">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionTwo" aria-expanded="false" aria-controls="iconAccordionTwo">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
+                                            Reviews  <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id="iconAccordionTwo" class="collapse" aria-labelledby="headingTwo3" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                
+                                        <div class="row">
+                                                                                                        
+                                            <div class="col-md-12 mx-auto">
+    
+                                                @if(reviews!=null){
+                                                    @for(review of reviews;track review){
+                                                        <div class="media mb-4">
+                                                            <div class="avatar me-sm-4 mb-sm-0 me-0 mb-3">
+                                                                @if(review.userAvatar.substring(0,5)=="https"){
+                                                                    <img alt="avatar" src="{{review.userAvatar}}" referrerpolicy="no-referrer" class="rounded-circle">
+                                                                }
+                                                                @else{
+                                                                    <img src="{{imageUrl+review.userAvatar}}"  class="rounded-circle">
+                                                                }
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <h4 class="media-heading mb-1">{{review.userName}}</h4>
+                                                                <div class="stars">
+                                                                    @if(review.rating == 1){
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    }
+                                                                    @else if(review.rating == 2){
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    }
+                                                                    @else if(review.rating == 3){
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    }
+                                                                    @else if(review.rating == 4){
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    }
+                                                                    @else if(review.rating == 5){
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    }
+                                                                </div>
+                                                                <div class="meta-tags">{{review.createdAt}}</div>
+                                                                <p class="media-text mt-2">{{review.reviewText}}</p>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    }
+                                                }
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="card">
+                                <div class="card-header" id="headingOne2">
+                                    <section class="mb-0 mt-0">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionOne" aria-expanded="false" aria-controls="iconAccordionOne">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-key"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg></div>
+                                            Authenticity <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+    
+                                <div id="iconAccordionOne" class="collapse" aria-labelledby="headingOne2" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p class="mb-4">We guarantee you the authenticity of this piece with a certificate of authenticity delivered with every piece on our website. There are a few exceptions with some of the artworks from the Digital and Mixed Media category. It is always mentioned whether it is print. You will receive a certificate mentioning the exact amount artists made and what number of prints is your artwork.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            
+                            <div class="card">
+                                <div class="card-header" id="headingOne3">
+                                    <section class="mb-0 mt-0">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionThree" aria-expanded="false" aria-controls="iconAccordionOne">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></div>
+                                            Description <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+    
+                                <div id="iconAccordionThree" class="collapse" aria-labelledby="headingOne3" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                
+                                                <h5><strong>Inspiration</strong></h5>
+                                                <hr/>
+                                                <p class="mb-4">{{product.description}}</p>
+                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                            <!-- <div class="card">
+                                <div class="card-header" id="headingOne4">
+                                    <section class="mb-0 mt-0">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionFour" aria-expanded="false" aria-controls="iconAccordionFour">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
+                                            Shipping Information  <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+    
+                                <div id="iconAccordionFour" class="collapse" aria-labelledby="headingOne4" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+    
+                                                <h5><strong>Shipping methods</strong></h5>
+                                                <hr/>
+                                                <p class="mb-4">The shipping of the art pieces is on average between 7-14 days to arrive in your home. Shipping days may vary depending on the country where the art piece is located and your shipping address. You will have more precise shipping details during checkout. Once the art piece is shipped, you will receive a tracking code to follow the delivery to your home.
+    
+                                                    Not convinced by the art piece you received? No problem, we have a 14-day return policy. Send us back the undamaged art piece within 14 days after you received it, and we will give you a full refund.
+                                                    
+                                                    If you have more questions with shipping, delivery, and return please check the FAQ's page.</p>
+                                                
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="card">
+                                <div class="card-header" id="headingOne4">
+                                    <section class="mb-0 mt-0">
+                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionFive" aria-expanded="false" aria-controls="iconAccordionFour">
+                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
+                                            Renting the Artwok  <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                        </div>
+                                    </section>
+                                </div>
+    
+                                <div id="iconAccordionFive" class="collapse" aria-labelledby="headingOne4" data-bs-parent="#iconsAccordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+    
+                                                <p class="mb-4">Do you like this piece, but you do not want to buy it yet? We offer renting options for 3, 4, or 6 months for you to try it in your home and see if it is the right fit for you. If you are interested in this option, feel free to contact us.</p>
+                                                <div style="text-align: center;">
+                                                    <button class="btn btn-warning mb-2 me-4" (click)="contactUs()">Contact Us</button>
+                                                </div>                                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            
+        </div>
+    }
+    </div>
+}
+

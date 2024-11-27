@@ -1,0 +1,186 @@
+<div class="row mb-4 layout-spacing layout-top-spacing">
+    
+    <form [formGroup]="postArtForm" (ngSubmit)="post()" class="row mb-4 layout-spacing layout-top-spacing">
+        <div class="col-xxl-9 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="widget-content widget-content-area ecommerce-create-section">
+        
+                <div class="row mb-4">
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="Product Name"  formControlName="name">
+                        @if(postArtForm.get('name').touched){
+                            <ul>
+                                @if(postArtForm.hasError('required',['name'])){
+                                    <li style="padding-top: 5px; color: red;">Name Art is blank</li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                </div>
+        
+                <div class="row mb-4">
+                    <div class="col-sm-12">
+                        <label>Description</label>
+                        <div id="product-description"></div>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="product-images">Upload Images</label>
+                        <div class="multiple-file-upload">
+                            <input type="file" class="form-control file-upload-input-lg" name="filepond" id="avatar"
+                            accept="image/png, image/jpeg, image/gif" (change)="selectFile($event)"/>
+                        </div>
+                        <div class="mt-4 mb-4">
+                            @if(imageArt!=null){
+                                <img src="{{imageArt}}" style="border: 2px solid darkgrey" class="rounded-4  object-fit-cover shadow" width="500px" height="500px">
+                            }
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>  
+        </div>
+        <div class="col-xxl-3 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+    
+            <div class="row">
+                <div class="col-xxl-12 col-xl-8 col-lg-8 col-md-7 mt-xxl-0 mt-4">
+                    <div class="widget-content widget-content-area ecommerce-create-section">
+                        <div class="row">
+                            <div class="col-xxl-12 col-md-6 mb-4">
+                                <label for="Sizes">Size</label>
+                                <input id="Sizes" class="form-control" placeholder="Enter Size" formControlName="size">
+                                @if(postArtForm.get('size').touched){
+                                    <ul>
+                                        @if(postArtForm.hasError('required',['size'])){
+                                            <li style="padding-top: 5px; color: red;">Size Art is blank</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                            
+                            <div class="col-xxl-12 col-md-6 mb-4">
+                                <label for="Paints">Paint</label>
+                                <input  class="form-control" id="Paints" placeholder="Enter Paint" formControlName="paint">
+                                @if(postArtForm.get('paint').touched){
+                                    <ul>
+                                        @if(postArtForm.hasError('required',['paint'])){
+                                            <li style="padding-top: 5px; color: red;">Paint is blank</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                            <div class="col-xxl-12 col-md-6 mb-4">
+                                <label for="Material">Material</label>
+                                <input id="Material" class="form-control" placeholder="Enter Material" formControlName="material">
+                                @if(postArtForm.get('material').touched){
+                                    <ul>
+                                        @if(postArtForm.hasError('required',['material'])){
+                                            <li style="padding-top: 5px; color: red;">Material Art is blank</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                            
+                            <div class="col-xxl-12 col-md-6 mb-4">
+                                <label for="Origin">Origin</label>
+                                <input type="text" class="form-control" id="Origin" placeholder="Enter Origin" formControlName="origin">
+                                @if(postArtForm.get('origin').touched){
+                                    <ul>
+                                        @if(postArtForm.hasError('required',['origin'])){
+                                            <li style="padding-top: 5px; color: red;">Origin Art is blank</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                            <div class="col-xxl-12 col-md-6 mb-4">
+                                <label for="Type">Category</label>
+                                @if(categories!=null){
+                                    <select class="form-select" id="Type" formControlName="categoryId">
+                                        <option value="">Choose Category...</option>
+                                        @for(category of categories;track category){
+                                            <option value="{{category.id}}">{{category.name}}</option>
+                                        }
+                                    </select>
+                                    @if(postArtForm.get('categoryId').touched){
+                                        <ul>
+                                            @if(postArtForm.hasError('required',['categoryId'])){
+                                                <li style="padding-top: 5px; color: red;">Category is blank</li>
+                                            }
+                                        </ul>
+                                    }
+                                }
+                            </div>
+                            <!-- <div class="col-xxl-12 col-md-6 mb-4">
+                                <label for="Type">Type</label>
+                                <select class="form-select" id="Type" formControlName="type">
+                                    <option value="">Choose Type...</option>
+                                    <option value="1">Online Sales</option>
+                                    <option value="2">Bid</option>
+                                </select>
+                                @if(postArtForm.get('type').touched){
+                                    <ul>
+                                        @if(postArtForm.hasError('required',['type'])){
+                                            <li style="padding-top: 5px; color: red;">Type Art is blank</li>
+                                        }
+                                    </ul>
+                                }
+                            </div> -->
+
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-12 col-xl-4 col-lg-4 col-md-5 mt-4">
+                    <div class="widget-content widget-content-area ecommerce-create-section">
+                        <div class="row">
+                            <div class="col-sm-12 mb-4">
+                                <label for="regular-price">Price: </label>
+                                <input type="text" class="form-control" id="regular-price" placeholder="Enter Price" formControlName="price">
+                                @if(postArtForm.get('price').touched){
+                                    <ul>
+                                        @if(postArtForm.hasError('required',['price'])){
+                                            <li style="padding-top: 5px; color: red;">Price is blank</li>
+                                        }
+                                        @if(postArtForm.hasError('pattern',['price'])){
+                                            <li style="padding-top: 5px; color: red;">Price invalid</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                            <div class="col-sm-12 mb-4">
+                                <label for="Quantity">Quantity</label>
+                                <input id="Quantity" class="form-control" placeholder="Enter Quantity" formControlName="quantity">
+                                @if(postArtForm.get('quantity').touched){
+                                    <ul>
+                                        @if(postArtForm.hasError('required',['quantity'])){
+                                            <li style="padding-top: 5px; color: red;">Quantity is blank</li>
+                                        }
+                                        @if(postArtForm.hasError('pattern',['quantity'])){
+                                            <li style="padding-top: 5px; color: red;">Quantity is between 1 and 100</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                            <!-- <div class="col-sm-12 mb-4">
+                                <label for="sale-price">Sale Price</label>
+                                <input type="text" class="form-control" id="sale-price" value="">
+                            </div> -->
+                            <!-- <div class="col-sm-12 mb-4">
+                                <div class="switch form-switch-custom switch-inline form-switch-danger">
+                                    <input class="switch-input" type="checkbox" role="switch" id="pricing-includes-texes">
+                                    <label class="switch-label" for="pricing-includes-texes">Price includes taxes</label>
+                                </div>
+                            </div> -->
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-success w-100" [disabled]="postArtForm.invalid">Add Product</button>
+                            </div>
+                        </div>                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

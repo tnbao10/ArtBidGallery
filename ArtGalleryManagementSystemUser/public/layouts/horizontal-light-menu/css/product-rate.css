@@ -1,0 +1,13 @@
+.text-secondary {
+    color: grey !important;
+  }
+  
+  .text-warning {
+    color: gold !important;
+  }
+  
+  .star-rating i {
+    cursor: pointer; 
+    margin-right: 5px; 
+  }
+  

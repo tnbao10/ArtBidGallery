@@ -1,0 +1,48 @@
+<!--  BEGIN NAVBAR  -->
+<div class="header-container container-xxl">
+    <user-header></user-header>
+</div>
+<!--  END NAVBAR  -->
+
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container " id="container">
+
+    <div class="overlay"></div>
+    <div class="search-overlay"></div>
+    <div class="sidebar-wrapper sidebar-theme">
+        <sidbar></sidbar>
+    </div>
+
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
+        
+        <div class="layout-px-spacing">
+
+            <div class="middle-content container-xxl p-0">
+                <!-- <div class="page-meta">
+                    <nav class="breadcrumb-style-four" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a [routerLink]="['home']" >
+                                    <span class="mb-3">  
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                    </span>
+                                    <span class="inner-text">Home</span>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Page</li>
+                        </ol>
+                    </nav>                    
+                </div> -->
+                <router-outlet></router-outlet>
+            </div>
+            
+        </div>
+        <user-footer></user-footer>
+
+        
+
+    </div>
+    <!--  END CONTENT AREA  -->
+</div>
+<!-- END MAIN CONTAINER -->

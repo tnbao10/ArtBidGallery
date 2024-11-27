@@ -1,0 +1,456 @@
+
+<div class="row invoice layout-top-spacing layout-spacing">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+            <div style="width: 100%;" class="doc-container">
+
+                <div style="width: 100%;" class="row">
+
+                    <div style="width: 100%;" class="col-xl-9">
+
+                        <div style="width: 100%;" class="invoice-container">
+                            <div class="invoice-inbox">
+
+                                <div id="ct" class="">
+
+                                    <div class="invoice-00001">
+                                        <div class="content-section">
+
+                                            <div class="inv--head-section inv--detail-section">
+
+                                                <div class="row">
+
+                                                    <div class="col-sm-6 col-12 mr-auto">
+                                                        <div class="d-flex">
+                                                            <img class="company-logo"
+                                                                src="../src/assets/img/TranhArt.jpg"
+                                                                alt="company">
+                                                            <h3  class="in-heading align-self-center">Kiet
+                                                                Store</h3>
+                                                        </div>
+                                                        <p  class="inv-street-addr mt-3">D5 Aptech, Binh
+                                                            Thanh</p>
+                                                        <p class="inv-email-address">artgallerykbktm&#64;gmail.com
+                                                        </p>
+
+                                                    </div>
+
+                                                    <div class="col-sm-6 text-sm-end">
+                                                        <p class="inv-list-number mt-sm-3 pb-sm-2 mt-4">
+                                                            <span class="inv-title">Invoice : </span> <span
+                                                                class="inv-number">#0001</span>
+                                                        </p>
+                                                        <p class="inv-created-date mt-sm-5 mt-3"><span
+                                                                class="inv-title">Invoice Date : </span>
+                                                            <span class="inv-date">{{invoiceDay}}</span>
+                                                        </p>
+                                                        <p class="inv-due-date"><span class="inv-title">Due
+                                                                Date : </span> <span
+                                                                class="inv-date">{{invoiceDay}}</span></p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="inv--detail-section inv--customer-detail-section">
+
+                                                <div class="row">
+
+                                                    <div
+                                                        class="col-xl-8 col-lg-7 col-md-6 col-sm-4 align-self-center">
+                                                        <p  class="inv-to">Transfer from</p>
+                                                    </div>
+
+                                                    <div
+                                                        class="col-xl-4 col-lg-5 col-md-6 col-sm-8 align-self-center order-sm-0 order-1 text-sm-end mt-sm-0 mt-5">
+                                                        <h6  class=" inv-to">Transfer to</h6>
+                                                    </div>
+
+                                                    <div class="col-xl-8 col-lg-7 col-md-6 col-sm-4">
+                                                        <p class="inv-customer-name">Árt Gallery</p>
+                                                        <p class="inv-email-address">Phone: 0982938283</p>
+                                                        <p class="inv-street-addr">35/6 đường D5, Q. Bình
+                                                            Thạnh</p>
+
+                                                    </div>
+                                                    @if(user!= null){
+                                                        @if(alladdress != null){
+                                                            <div
+                                                            class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 order-sm-0 order-1 text-sm-end">
+                                                            <p class="inv-customer-name">{{user.username}}</p>
+                                                            <p class="inv-email-address">{{user.email}}
+                                                            </p>
+                                                            <p class="inv-email-address">Phone: {{user.phoneNumber}}</p>
+                                                            @if(currentaddress!= null){
+                                                                <p class="inv-street-addr">{{currentaddress.addressLine}} {{currentaddress.wardName}} {{currentaddress.districName}} {{currentaddress.provinceName}}</p>
+                                                            }
+                                                            <button class="btn btn-secondary mt-4 add-address noprint" data-bs-toggle="modal"
+                                                            data-bs-target="#changecurrentaddress">Change Address</button>
+                                                        </div>
+                                                        }                                                   
+                                                    }
+                                                    
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="inv--product-table-section">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class="">
+                                                            <tr>
+                                                                <th>Image</th>
+                                                                <th>Product Name</th>                                                                 
+                                                                <th>Quantity</th>
+                                                                <th>Price</th>
+                                                                <th>Seller</th>                                                                        
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @if(invoiceList){
+                                                                @for(product of invoiceList; track product){
+                                                                    <tr>
+                                                                        <td>
+                                                                            @if(product.image.substring(0,5)=="https"){
+                                                                                
+                                                                                <img src="{{product.image}}"width="60" height="60" alt="">
+
+                                                                            }
+                                                                            @else {
+                                                                                <img src="{{imageUrl + product.image}}"width="60" height="60" alt="">
+                                                                            } 
+                                                                        </td>
+                                                                        <td>{{product.name}}</td>                                                                                   
+                                                                        <td>{{product.quantity}}</td>
+                                                                        <td>${{product.price}}</td>
+                                                                        <td>
+                                                                            <div class="d-flex">
+                                                                                <div class="usr-img-frame me-2 rounded-circle">
+                                                                                    @if(product.avatar.substring(0,5)=="https"){
+                                                                                        <img alt="avatar" class="img-fluid rounded-circle" src="{{product.avatar}}">
+                                                                        
+                                                                                    }
+                                                                                    @else {
+                                                                                        <img alt="avatar" class="img-fluid rounded-circle" src="{{imageUrl+product.avatar}}">
+                                                                                        
+                                                                                    }                                        
+                                                                                </div>
+                                                                                <p class="inv-amount mx-2">{{product.username}}</p>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+                                                            }                                                
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="inv--total-amounts">
+                                                <div class="row">
+                                                    <div class="col-sm-5 col-12 order-sm-0 order-1">
+                                                        
+                                                    </div>
+                                                    <div class="col-sm-7 col-12 order-sm-1 order-0 ">                                                       
+                                                        <div class="inv--total-amounts">
+                                                                                                                   
+                                                            <div class="col-12 order-sm-1 order-0">
+                                                                <div class="text-sm-end">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-8 col-7">
+                                                                            <p class="">Sub Total :</p>
+                                                                        </div>
+                                                                        <div class="col-sm-4 col-5">
+                                                                            <p class="">${{subtotal}}</p>
+                                                                        </div>
+                                                                        <div class="col-sm-8 col-7">
+                                                                            <p class="">Tax:</p>
+                                                                        </div>
+                                                                        <div class="col-sm-4 col-5">
+                                                                            <p class="">${{tax}}</p>
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-sm-8 col-7  mt-3">
+                                                                            <h4 class="">Grand Total : </h4>
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-sm-4 col-5  mt-3 mb-4">
+                                                                            <h4 class="">${{total}}</h4>
+                                                                        </div>
+                                                                        <div class="col-xl-12 col-md-3 col-sm-6 noprint" style="padding: 0; ">
+                                                                            <a href="javascript:void(0);"
+                                                                                class="btn btn-secondary btn-print btn-lg  action-print" style="padding: 10px 60px;">Print</a>
+                                                                        </div>
+                                                                    </div>
+                                                                  
+                                                                </div>
+                                                            </div>
+                                                     
+                                                    </div> 
+                                                    </div> 
+                                                                                             
+                                                </div>
+                                                    
+
+                                          
+                                                <div class="row mt-4 noprint" >
+                                                    <div class="col-sm-5 col-12 order-sm-0 order-1">
+                                                        <div class="col-sm-12 col-12 order-sm-0 order-1">
+                                                            <p>Note: Thank you for doing Business with us.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-7 col-12 order-sm-1 order-0">
+                                                        <ngx-paypal [config]="payPalConfig"></ngx-paypal>   
+                                                                                                            
+                                                    </div>
+                                                </div> 
+                                                
+
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- Modal Structure (Change ADDRESS)-->
+<div class="modal animated zoomInUp custo-zoomInUp changecurrentaddress" id="changecurrentaddress" tabindex="-1" aria-labelledby="addAddressModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        
+        <div class="modal-body d-flex flex-column justify-content-center align-items-center" style="padding: 30px;">     
+            
+            <div class="col-xl-6 col-lg-12 col-md-12 layout-spacing" style="width: 100% !important;">
+                
+                    <div class="info">
+                        <h6 class="">Address</h6> 
+                        @if(alladdress!=null){
+                                            
+                            @for(addr of alladdress;track addr ; let index = $index){
+                                <div class="list-group mt-4">
+                                    <label class="list-group-item">
+                                        <div class="d-flex w-100">
+                                            <div class="billing-radio me-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input setcurrentaddr" type="radio" name="billingAddress"
+                                                        id="billingAddress1" checked value="{{addr.id}}">
+                                                </div>
+                                            </div>
+                                            <div class="billing-content">
+                                                <div class="fw-bold">Address #{{index+1}}</div>
+                                                <p class="currentaddr">{{addr.addressLine}}, Phường {{addr.wardName}}, {{addr.districtName}}, {{addr.provinceName}}</p>
+                                            </div>
+                                            <div class="billing-edit align-self-center ms-auto">
+                                                <button (click)="editAddress(addr.id)" data-bs-toggle="modal" data-bs-target="#editAddressModal" class="btn btn-dark">Edit</button>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                            }
+                        }
+                        @else{
+                            <div class="list-group mt-4">
+                                <label class="list-group-item">
+                                    <p>Please Add Address</p>
+                                </label>
+                            </div>   
+                        }
+                        <div class="row">
+                            <div class="col-3">
+                                <button class="btn btn-secondary mt-4 add-address" data-bs-toggle="modal"
+                                data-bs-target="#addAddressModal">Add Address</button>
+                            </div>
+                            <div class="col-6"></div>
+                            <div class="col-3">
+                                <button class="btn btn-secondary mt-4 float-end" (click)=saveCurrentAddress()>Save Address</button>
+                            </div>
+                            
+                        </div>
+                    
+                    </div>
+                
+            </div>                             
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal Structure (ADD ADDRESS)-->
+<div class="modal animated zoomInUp custo-zoomInUp addaddress" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="addAddressModalLabel">Add Billing Address</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+        <div class="modal-body d-flex flex-column justify-content-center align-items-center" style="padding: 30px;">
+            <p>Changes to your New <span class="text-success">Billing</span> Information.</p>
+            <form [formGroup]="addAddressForm" (ngSubmit)="createAddress()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Receiver Name</label>
+                            <input type="text" class="form-control" placeholder="Enter name" formControlName="name">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-control" placeholder="Enter phone"
+                            formControlName="phoneNumber">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" placeholder="Enter address" formControlName="addressLine">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">City</label>
+                            <select formControlName="provinceCode" class="form-select" (change)="choosedProvince($event)" >
+                                <option value="">Choose...</option>
+                                @for(province of provinces;track province){
+                                    <option value="{{province.code}}">{{province.name}}</option>
+                                }
+                            </select>                                               
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">District</label>
+                                <select formControlName="districtCode" [disabled]=!districts class="form-select" (change)="choosedDistrict($event)" >
+                                    <option value="" selected>Choose...</option>
+                                    @for(district of districts;track district){
+                                        <option value="{{district.code}}">{{district.name}}</option>
+                                    }
+                                </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Ward</label>
+                            <select formControlName="wardCode" [disabled]=!wards class="form-select" >
+                                <option value="" selected>Choose...</option>
+                                @for(ward of wards;track ward){
+                                    <option value="{{ward.code}}">{{ward.name}}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label class="form-label">ZIP</label>
+                            <input type="tel" class="form-control" placeholder="Enter ZIP"
+                            formControlName="postalCode">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" [disabled]="addAddressForm.invalid" style="padding-right: 30px; padding-left: 30px;">Add</button>
+            </form>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal Structure (EDIT ADDRESS)-->
+<div class="modal animated zoomInUp custo-zoomInUp editaddress" id="editAddressModal" tabindex="-1" aria-labelledby="editAddressModal"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="addAddressModalLabel">Add Billing Address</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+        <div class="modal-body d-flex flex-column justify-content-center align-items-center" style="padding: 30px;">
+            <p>Changes to your New <span class="text-success">Billing</span> Information.</p>
+            <form [formGroup]="editAddressForm" (ngSubmit)="editSave()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter name" formControlName="name">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-control" placeholder="Enter phone"
+                            formControlName="phoneNumber">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" placeholder="Enter address" formControlName="addressLine">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">City</label>
+                            <select formControlName="provinceCode" class="form-select" (change)="choosedProvince($event)" >
+                                <option value="">Choose...</option>
+                                @for(province of provinces;track province){
+                                    <option value="{{province.code}}">{{province.name}}</option>
+                                }
+                            </select>                                               
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">District</label>
+                                <select formControlName="districtCode" class="form-select" (change)="choosedDistrict($event)" >
+                                    <option value="" selected>Choose...</option>
+                                    @for(district of districts;track district){
+                                        <option value="{{district.code}}">{{district.name}}</option>
+                                    }
+                                </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Ward</label>
+                            <select formControlName="wardCode" class="form-select" >
+                                <option value="" selected>Choose...</option>
+                                @for(ward of wards;track ward){
+                                    <option value="{{ward.code}}">{{ward.name}}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label class="form-label">ZIP</label>
+                            <input type="tel" class="form-control" placeholder="Enter ZIP"
+                            formControlName="postalCode">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" [disabled]="editAddressForm.invalid" style="padding-right: 30px; padding-left: 30px;">Change</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
